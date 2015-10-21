@@ -22,7 +22,7 @@
 /*FOOTER*/
   body {
     display: flex;
-    min-height: 100vh;
+    min-height: 98vh;
     flex-direction: column;
   }
   main {
@@ -81,34 +81,7 @@
 	z-index: 1;
 }
 
-.navfix{
-	height: 50px;
-}
-.navfix li{
-	height: 50px;
-}
-.navfix a{
-	font-size: 100%;
-	height: 50px;
-}
-.rightnav{
-	height: 50px;
-}
-.rightnav img {
-	margin-bottom: 20px;
-}
-.rightnav a{
-	margin-bottom: 20px;
-}
-.rightnav li{
-	height: 50px;
-}
-.dp-menu li{
-    width: 150px;
-}
-.dp-menu a{
-	font-size: 14px;
-}
+
 .info p{
 	font-size: 1rem;
 	margin-bottom: 0px;
@@ -120,46 +93,4 @@
 }
 .info #fix{
     padding-left: 20px;
-}
-.collection{
-	border: 0px;
-}
-.trends h4{
-    padding-left: 15px;
-	margin-bottom: 0px;
-}
-.trends a{
-   padding-left: 15px;
-}
-.people small{
-	font-size: 1rem;
-}
-.people #peoplepad{
-    padding-left: 10px;
-}
-.people li{
-    padding-bottom: 0px;
-    padding-right: 0px;
-    padding-top: 0px;
-    padding-left: 60px;
-    height: 50px;
-    padding-bottom: 0px;
-    padding-top: 0px;
-
-}
-.people img{
-    left: 8px;
-    top: -1px;
-}
-.people #bttn{
-    padding-bottom: 2px;
-    padding-top: 2px;
-    border-bottom-width: 0px;
-    height: 25px;
-}
-#masthead{
-    padding-left: 40px;
-}
-.notifmain{
-    padding-top: 5px;
 }
