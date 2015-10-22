@@ -5,6 +5,7 @@
 		<!--Import materialize.css-->
 		<link type="text/css" rel="stylesheet" href="../resources/css/materialize.min.css"  media="screen,projection"/>
 		<link href="../resources/css/bootstrap.css" rel="stylesheet">
+		 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link href="../resources/css/custom.css" rel="stylesheet">
 		<!--Let browser know website is optimized for mobile-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -25,88 +26,124 @@
 		<header class="blue-grey lighten-5">
 			<div class="sidenav">
 				<ul id="slide-out" class="side-nav fixed cyan darken-1">
-					<li class="infocard white" style="padding-top:100px;">
-						<div class="infocard">
-							<!--<div class="card-image">
-								<img src="../resources/images/bg.jpg">
-							</div>-->
-							<!-- DP and Name -->
-							<div class="row nomargin-bot" style="padding-right: 68px;">
-								<div class="col s2 m2">
-									<img src="../resources/images/dog.jpg" style="left:70px;bottom:50px;">
-								</div>
-								<div class="col s8 m8 offset-s2 offset-m2" id="info"> 
-									<h4 class="blue-grey-text text-darken-4 flow-text"><b>Doge Dogeson</b></h4>
-									<h6 class="blue-grey-text text-darken-4 flow-text">@WowSoPunny</h6>
-								</div>
+					<div class="infocard white">
+						<!-- DP and Name -->
+						<div class="row nomargin-bot" style="padding-top:100px;padding-right: 68px;">
+							<div class="col s2 m2">
+								<img src="../resources/images/dog.jpg" style="left:70px;bottom:50px;">
+							</div>
+							<div class="col s8 m8 offset-s2 offset-m2" id="info"> 
+								<h4 class="blue-grey-text text-darken-4 flow-text"><b>Doge Dogeson</b></h4>
+								<h6 class="blue-grey-text text-darken-4 flow-text">@WowSoPunny</h6>
 							</div>
 						</div>
-					</li>
-					<li><a href="#!" class="grey-text text-lighten-4">First Sidebar Link</a></li>
-					<li><a href="#!" class="grey-text text-lighten-4">Second Sidebar Link</a></li>
+					</div>
+					<div class="row">
+						<table class="info">
+							<tbody>
+								<tr>
+									<td id="fix">
+										<a href="#" style="padding-right: 0px;padding-left: 5px;">
+											<p class="blue-grey-text text-darken-4 flow-text">TWEETS</p>
+											<h6 class=" yellow-text text-accent-4 flow-text">9,999</h6>
+										</a>
+									</td>
+									<td>
+										<a href="#" style="padding-left:0px;padding-right: 0px;">
+											<p class="blue-grey-text text-darken-4 flow-text">FOLLOWING</p>
+											<h6 class=" yellow-text text-accent-4 flow-text">9,999</h6>
+										</a>
+									</td>
+									<td>
+										<a href="#" style="padding-left:0px;padding-right: 0px;">
+											<p class="blue-grey-text text-darken-4 flow-text">FOLLOWERS</p>
+											<h6 class=" yellow-text text-accent-4 flow-text">9,999</h6>
+										</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<li style="margin-top:40px"><a href="#!" class="" style="padding-top:10px;"><h3><i class="small material-icons">add_alert</i> Notifications</h3></a></li>
+					<li><a href="#!" class="grey-text text-lighten-4" style="padding-top:10px;"><h3>Mentions</h3></a></li>
 				</ul>
 				<a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 			</div>
 		</header>
 		
 		<main class="blue-grey lighten-5">
-			<div class="container">
+			<div class="container" style="margin-left:8%; margin-right:8%;width:90%;">
 				<div class="section">
-					<div class="row"> 
-					
-						<!-- Information Panel -->
-						<div class="col s12 m4 l3">
-							<!-- Mini Background -->
-							<div class="card green lighten-4">
-								<div class="card-image">
-									<img src="../resources/images/bg.jpg">
-								</div>
-								<!-- DP and Name -->
-								<div class="row nomargin-bot">
-									<div class="col s2 m2">
-										<img src="../resources/images/dog.jpg">
-									</div>
-									<div class="col s8 m8 offset-s2 offset-m2" id="info"> 
-										<h4 class="blue-grey-text text-darken-4 flow-text"><b>Doge Dogeson</b></h4>
-										<h6 class="blue-grey-text text-darken-4 flow-text">@WowSoPunny</h6>
-									</div>
-								</div>
-								<!-- Statistics -->
-								<table class="info">
-									<tbody>
-										<tr>
-											<td id="fix">
-												<a href="#">
-													<p class="blue-grey-text text-darken-4 flow-text">TWEETS</p>
-													<h6 class="green-text text-lighten-1 flow-text">9,999</h6>
-												</a>
-											</td>
-											<td>
-												<a href="#">
-													<p class="blue-grey-text text-darken-4 flow-text">FOLLOWING</p>
-													<h6 class="green-text text-lighten-1 flow-text">9,999</h6>
-												</a>
-											</td>
-											<td>
-												<a href="#">
-													<p class="blue-grey-text text-darken-4 flow-text">FOLLOWERS</p>
-													<h6 class="green-text text-lighten-1 flow-text">9,999</h6>
-												</a>
-											</td>
-										</tr>
-									</tbody>
-								</table>
+					<div class="row" style="width:100%;">
+						<!-- Hardcoded Tweets --> 
+						<div class="col s12 m6 l8" style="width: 70%;">
+							<div class="card-panel white" style="
+								padding-left: 0px;
+								padding-right: 0px;
+								padding-top: 0px;
+								padding-bottom: 0px;
+							"> 
+								<ul class="collection" id="leaves">
+									<li class="collection-item avatar white lighten-4">
+										<img src="../resources/images/dog.jpg" class="circle">
+										<span class="title"><b>Doge Dogeson</b>@WowSoPunny</span>
+										<p>Welcome to Leafer! Have fun using the app!<br/><br/>
+											<table class="info">
+												<tbody>
+													<tr>
+														<td>
+															<a href="#">
+																<span class="glyphicon glyphicon-share-alt blue-grey-text text-darken-4" aria-hidden="true"></span>
+															</a>
+														</td>
+														<td>
+															<a href="#">
+																<span class="glyphicon glyphicon-refresh blue-grey-text text-darken-4" aria-hidden="true"></span>
+															</a>
+														</td>
+														<td>
+															<a href="#">
+																<span class="glyphicon glyphicon-heart blue-grey-text text-darken-4" aria-hidden="true"></span>
+															</a>
+														</td>
+														<td>
+															<a href="#">
+																<span class="glyphicon glyphicon-option-horizontal blue-grey-text text-darken-4" aria-hidden="true"></span>
+															</a>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</p>
+									</li>
+								</ul>
 							</div>
-							
-							
 						</div>
+						
+						<!-- Trends Panel -->
+						<div class="col s12 m6 l3" style="margin-left:5%;">
+							<div class="card s2 hide-on-small-only">
+								<ul class="collection with-header" style="margin-top:0px;margin-bottom:0px;">
+									<li class="collection-header cyan darken-1 blue-grey-text text-darken-2">
+										<h4>Trends</h4>
+									</li>
+									<li class="collection-item" >
+										<a href="#!" class="collection-item yellow-text text-accent-4">Trending 1</a>
+									</li>
+									<li class="collection-item" >
+										<a href="#!" class="collection-item yellow-text text-accent-4">Trending 2</a>
+									</li>
+								</ul>
+
+							</div>
+						</div>	
 					</div>
 				</div>
 			</div>
 		</main>
 		
 		<footer class="page-footer blue-grey lighten-5">
-			<div class="container" style="margin-right: 100px;margin-left: 100px;">
+			<div class="container" style="margin-right: 10%;margin-left: 10%;width:80%;">
 				<div class="row">
 
 				

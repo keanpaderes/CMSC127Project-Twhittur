@@ -1,0 +1,196 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+  /* label color */
+   .input-field label {
+     color: white;
+   }
+   /* label focus color */
+   .input-field input[type=text]:focus + label {
+     color: white;
+   }
+   /* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid white;
+     box-shadow: 0 1px 0 0 white;
+	 color: white;
+   }
+   /* valid color */
+   .input-field input[type=text].valid {
+     border-bottom: 1px solid white;
+     box-shadow: 0 1px 0 0 white;
+	 color: white;
+   }
+   /* invalid color */
+   .input-field input[type=text].invalid {
+     border-bottom: 1px solid white;
+     box-shadow: 0 1px 0 0 white;
+	 color: white;
+   }
+   
+    /* label focus color */
+   .input-field input[type=password]:focus + label {
+     color: white;
+   }
+   /* label underline focus color */
+   .input-field input[type=password]:focus {
+     border-bottom: 1px solid white;
+     box-shadow: 0 1px 0 0 white;
+	 color: white;
+   }
+   /* valid color */
+   .input-field input[type=password].valid {
+     border-bottom: 1px solid white;
+     box-shadow: 0 1px 0 0 white;
+	 color: white;
+   }
+   /* invalid color */
+   .input-field input[type=password].invalid {
+     border-bottom: 1px solid white;
+     box-shadow: 0 1px 0 0 white;
+	 color: white;
+   }
+   
+   /* label focus color */
+   .input-field input[type=email]:focus + label {
+     color: white;
+   }
+   /* label underline focus color */
+   .input-field input[type=email]:focus {
+     border-bottom: 1px solid white;
+     box-shadow: 0 1px 0 0 white;
+	 color: white;
+   }
+   /* valid color */
+   .input-field input[type=email].valid {
+     border-bottom: 1px solid white;
+     box-shadow: 0 1px 0 0 white;
+	 color: white;
+   }
+   /* invalid color */
+   .input-field input[type=email].invalid {
+     border-bottom: 1px solid white;
+     box-shadow: 0 1px 0 0 white;
+	 color: white;
+   }
+   
+   /* icon prefix focus color */
+   .input-field .prefix.active {
+     color: white;
+   }
+   
+   .switch label {
+  cursor: pointer; 
+  color: white;
+  }
+ 
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+p {
+  line-height: 2rem;
+}
+
+.button-collapse {
+  color: #26a69a;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+  .parallax-container .section {
+    width: 100%;
+  }
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+p {
+  line-height: 2rem;
+}
+
+.button-collapse {
+  color: #26a69a;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+  .parallax-container .section {
+    width: 100%;
+  }
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
