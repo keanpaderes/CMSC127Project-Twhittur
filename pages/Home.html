@@ -67,7 +67,7 @@
 					<li style="margin-top:40px"><a href="#!" class="" style="padding-top:10px;"><h3><i class="small material-icons">add_alert</i> Notifications</h3></a></li>
 					<li><a href="#!" class="grey-text text-lighten-4" style="padding-top:10px;"><h3>Mentions</h3></a></li>
 				</ul>
-				<a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+				<!--<a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>-->
 			</div>
 		</header>
 		
@@ -118,6 +118,8 @@
 									</li>
 								</ul>
 							</div>
+
+
 						</div>
 						
 						<!-- Trends Panel -->
@@ -155,13 +157,12 @@
 											<div class="col s1" id="leafbar-dp">
 												<img src="../resources/images/dog.jpg" alt="IMAGE">
 											</div>
-											<div class="input-field col s10" id="leafbar-info">
+											<div class="input-field col s9" id="leafbar-info">
 												<input id="post" placeholder="What's happening?" type="textbox" class="validate green lighten-4" maxlength= "140">
+												<a class="waves-effect waves-light btn yellow  blue-grey-text text-darken-4" id="postBtn" style="top:-33px;left:700px;">Leafit <span class="glyphicon glyphicon-edit"></span></a>
 											</div>
 										</div>
-										<div id="hidden">
-											<a class="waves-effect waves-light btn green lighten-4 blue-grey-text text-darken-4" id="postBtn" style="left: 400px; bottom: 15px;">Leafit <span class="glyphicon glyphicon-edit"></span></a>
-										</div>
+
 									</form>
 								</div>
 							</div>
@@ -173,7 +174,7 @@
 				$('.page-footer').pushpin({bottom});
 				$('#hidden').hide();
 				$("#postBtn").click(function postLeaf(){
-					var counter = $('#leaves').length;
+					/*var counter = $('#leaves').length;
 					console.log(counter);
 					var src = "../resources/images/dog.jpg";
 					var id = "tweet"+(counter+1);
@@ -186,28 +187,21 @@
 					leaf.find('li:first').attr('id', id);
 					leaf.find('img:first').attr('src', src);
 					leaf.find('span:first').addClass('title').html("<b>"+name+"</b>"+handle);
-					leaf.find('p:first').html(leafMsg + "<br/><br/>");
+					leaf.find('p:first').html(leafMsg + "");
 					leaf.find('table:first');
-					leaf.prependTo('#leaves');
+					leaf.prependTo('#leaves');*/
 					
 				});
-				$('#post').focus(function(){
-					$('.leafbar').animate({height:180},500,function(){})
-					$('#hidden').show();
-					/*.append("<input/>")
-					.attr({
-						'id': 'leafbutton'
-						'type': 'submit',
-						'value': 'submit',
-						'onclick': 'postLeaf()'
-					})*/;
+				/*$('#post').focus(function(){
+					$('#post').animate({height:180},500,function(){})
+					//$('#hidden').show();
 					$(this).animate({height:110},500,function(){});
 				}).blur(function(){
 					$('.leafbar').animate({height:50},500,function(){});
 					$('#hidden').hide();
 					$(this).animate({height:34},500,function(){});
 					$
-				});
+				});*/
 			});
 		</script>
 	</body>

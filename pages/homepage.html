@@ -128,8 +128,16 @@
 			  alert("Please fill out the username");
 			  return false;
 			  }
-			if(x == 'doge101@doge.com' && y == 'dogeharthart'){
-				window.open ("../pages/Home.html");
+			else if(x == 'doge101@doge.com'){
+				if(y != 'dogeharthart' || y == '' || y == null){
+					alert("Your input password is invalid. Please try again.");				
+				} else{
+					window.open ("../pages/Home.html");
+					window.close();
+				}			
+			}
+			else if(x == 'doge101@doge.com'){
+						
 			}
 		}
 	  </script>
