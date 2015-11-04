@@ -94,3 +94,11 @@
 .info #fix{
     padding-left: 20px;
 }
+
+.coll-left-padding{
+  padding-left: 15px !important;
+}
+
+.a-left-padding{
+  padding-left: 10px !important;
+}
