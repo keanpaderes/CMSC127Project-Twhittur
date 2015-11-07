@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Leafer / Home</title>
+		<title>Twitthur / Admin</title>
 		<!--Import materialize.css-->
 		<link type="text/css" rel="stylesheet" href="../resources/css/materialize.min.css"  media="screen,projection"/>
 		<link href="../resources/css/bootstrap.css" rel="stylesheet">
@@ -14,23 +14,15 @@
 		<script type="text/javascript" src="../resources/js/materialize.min.js"></script>
 		<script src="../resources/js/bootstrap.js"></script>
 	</head>
-	<body class="blue-grey lighten-5">
-
-		<table style="display:none;">
-			<tr>
-				<td id="username"> Admin Adminson </td>
-				<td id="userhandle"> Master Admin </td>
-			</tr>
-		</table>
-
-		<header class="blue-grey lighten-5">
+	<body>
+		<header>
 			<div class="sidenav">
 				<ul id="slide-out" class="side-nav fixed cyan darken-1">
 					<div class="infocard white">
 						<!-- DP and Name -->
-						<div class="row nomargin-bot" style="padding-top:100px;padding-right: 68px;">
+						<div class="row nomargin-bot" style="padding-top:100px;padding-right: 68px">
 							<div class="col s2 m2">
-								<img src="../resources/images/dog.jpg" style="left:70px;bottom:50px;">
+								<img src="../resources/images/dog.jpg" style="left:70px;bottom:50px">
 							</div>
 							<div class="col s8 m8 offset-s2 offset-m2" id="info">
 								<h4 class="blue-grey-text text-darken-4 flow-text"><b>Admin Adminson</b></h4>
@@ -38,224 +30,149 @@
 							</div>
 						</div>
 					</div>
-					<!--<div class="row">
-						<table class="info">
-							<tbody>
-								<tr>
-									<td id="fix">
-										<a href="#" style="padding-right: 0px;padding-left: 5px;">
-											<p class="blue-grey-text text-darken-4 flow-text">TWEETS</p>
-											<h6 class=" yellow-text text-accent-4 flow-text">9,999</h6>
-										</a>
-									</td>
-									<td>
-										<a href="#" style="padding-left:0px;padding-right: 0px;">
-											<p class="blue-grey-text text-darken-4 flow-text">FOLLOWING</p>
-											<h6 class=" yellow-text text-accent-4 flow-text">9,999</h6>
-										</a>
-									</td>
-									<td>
-										<a href="#" style="padding-left:0px;padding-right: 0px;">
-											<p class="blue-grey-text text-darken-4 flow-text">FOLLOWERS</p>
-											<h6 class=" yellow-text text-accent-4 flow-text">9,999</h6>
-										</a>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>-->
-					<li style="margin-top:40px"><a href="#!" class="" style="padding-top:10px;"><h3><i class="small material-icons">add_alert</i>Stuff 1</h3></a></li>
-					<li><a href="#!" class="grey-text text-lighten-4" style="padding-top:10px;"><h3>Stuff 2</h3></a></li>
+					<div class="spacing">
+					</div>
+					<li><a href="#!" class="options grey-text text-lighten-4"><h4>Settings</h4></a></li>
+					<li><a href="/homepage.html" class="options grey-text text-lighten-4"><h4>Sign Out</h4></a></li>
 				</ul>
 			</div>
 		</header>
 
 		<main class="blue-grey lighten-5">
-			<div class="container" style="margin-left:6%; margin-right:6%;width:100%;">
-				<div class="section">
-					<div class="row" style="width:100%;">
-
-						<!-- Active Users Panel -->
-						<div class="col s12 m6 l3" style="margin-left:3%;">
-							<div class="card s2 hide-on-small-only">
-								<ul class="collection with-header" style="margin-top:0px;margin-bottom:0px;">
-									<li class="collection-header teal darken-1 white-text">
-										<h4>Active Users</h4>
-									</li>
-									<li class="collection-item coll-left-padding" >
-										<div class="row">
-											<div class="col s3">
-												<img src="../resources/images/dog.jpg" style="height:55px;width:55px;">
-											</div>
-											<div class="col s9">
-												<a href="#!" class="collection-item text-accent-4 a-left-padding">Kean Paderes (@KeanPaderes)</a>
-											</div>
-										</div>
-									</li>
-									<li class="collection-item coll-left-padding" >
-										<div class="row">
-											<div class="col s3">
-												<img src="../resources/images/dog.jpg" style="height:55px;width:55px;">
-											</div>
-											<div class="col s9">
-												<a href="#!" class="collection-item text-accent-4 a-left-padding">Mike Serato (@MikeSerato)</a>
-											</div>
-										</div>
-									</li>
-									<li class="collection-item coll-left-padding" >
-										<div class="row">
-											<div class="col s3">
-												<img src="../resources/images/dog.jpg" style="height:55px;width:55px;">
-											</div>
-											<div class="col s9">
-												<a href="#!" class="collection-item text-accent-4 a-left-padding">Wency Yambao (@WencyYambao)</a>
-											</div>
-										</div>
-									</li>
-								</ul>
+			<nav>
+			    <div class="nav-wrapper cyan darken-1">
+			      <form>
+			        <div class="input-field">
+			          <input id="search" type="search" required>
+			          <label for="search"><i class="material-icons">search</i></label>
+			        </div>
+			      </form>
+			    </div>
+			</nav>
+			<div class="row" style="width:100%">
+				<!-- Active Users Panel -->
+				<div class="col s12 m6 l3 outer" style="margin-left:9%">
+					<div class="card s2 hide-on-small-only">
+						<ul class="collection with-header" style="margin-top:0px;margin-bottom:0px;">
+							<li class="collection-header teal darken-1 white-text">
+								<h4>Active Users</h4>
+							</li>
+							<div class="inner">
+							<li class="collection-item coll-left-padding" >
+								<div class="row">
+									<div class="col s3">
+										<img src="../resources/images/dog.jpg" style="height:55px;width:55px;">
+									</div>
+									<div class="col s9">
+										<a href="#!" class="collection-item text-accent-4 a-left-padding">Kean Paderes (@KeanPaderes)</a>
+									</div>
+								</div>
+							</li>
+							<li class="collection-item coll-left-padding" >
+								<div class="row">
+									<div class="col s3">
+										<img src="../resources/images/dog.jpg" style="height:55px;width:55px;">
+									</div>
+									<div class="col s9">
+										<a href="#!" class="collection-item text-accent-4 a-left-padding">Mike Serato (@MikeSerato)</a>
+									</div>
+								</div>
+							</li>
+							<li class="collection-item coll-left-padding" >
+								<div class="row">
+									<div class="col s3">
+										<img src="../resources/images/dog.jpg" style="height:55px;width:55px;">
+									</div>
+									<div class="col s9">
+										<a href="#!" class="collection-item text-accent-4 a-left-padding">Wency Yambao (@WencyYambao)</a>
+									</div>
+								</div>
+							</li>
 							</div>
-						</div>
-
-						<!-- Pending Users Panel -->
-						<div class="col s12 m6 l3" style="margin-left:3%;">
-							<div class="card s2 hide-on-small-only">
-								<ul class="collection with-header" style="margin-top:0px;margin-bottom:0px;">
-									<li class="collection-header teal darken-1 white-text">
-										<h4>Pending Users</h4>
-									</li>
-									<li class="collection-item coll-left-padding" >
-										<div class="row">
-											<div class="col s3">
-												<img src="../resources/images/dog.jpg" style="height:55px;width:55px;">
-											</div>
-											<div class="col s9">
-												<a href="#!" class="collection-item text-accent-4 a-left-padding">Pabebe Boy (@E0wPhouSZ)</a>
-											</div>
-										</div>
-									</li>
-									<li class="collection-item coll-left-padding" >
-										<div class="row">
-											<div class="col s3">
-												<img src="../resources/images/dog.jpg" style="height:55px;width:55px;">
-											</div>
-											<div class="col s9">
-												<a href="#!" class="collection-item text-accent-4 a-left-padding">Fan Girl (@KathnielForever)</a>
-											</div>
-										</div>
-									</li>
-									<li class="collection-item coll-left-padding" >
-										<div class="row">
-											<div class="col s3">
-												<img src="../resources/images/dog.jpg" style="height:55px;width:55px;">
-											</div>
-											<div class="col s9">
-												<a href="#!" class="collection-item text-accent-4 a-left-padding">Ms. Pastillas (@MalandiAko)</a>
-											</div>
-										</div>
-									</li>
-									<li class="collection-item coll-left-padding" >
-										<div class="row">
-											<div class="col s3">
-												<img src="../resources/images/dog.jpg" style="height:55px;width:55px;">
-											</div>
-											<div class="col s9">
-												<a href="#!" class="collection-item text-accent-4 a-left-padding">AlDub Is Love (@AldubTamangPanahon)</a>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-						<!-- Trends Panel -->
-						<div class="col s12 m6 l3" style="margin-left:3%;">
-							<div class="card s2 hide-on-small-only">
-								<ul class="collection with-header" style="margin-top:0px;margin-bottom:0px;">
-									<li class="collection-header teal darken-1 white-text">
-										<h4>Trending List</h4>
-									</li>
-									<li class="collection-item" >
-										<a href="#!" class="collection-item text-accent-4 a-left-padding">CMSC 127 The Best</a>
-									</li>
-									<li class="collection-item" >
-										<a href="#!" class="collection-item text-accent-4 a-left-padding">Primavera <3</a>
-									</li>
-									<li class="collection-item" >
-										<a href="#!" class="collection-item text-accent-4 a-left-padding">Mike Gwapo</a>
-									</li>
-									<li class="collection-item" >
-										<a href="#!" class="collection-item text-accent-4 a-left-padding">Papa Kean</a>
-									</li>
-									<li class="collection-item" >
-										<a href="#!" class="collection-item text-accent-4 a-left-padding">Wency We Love You</a>
-									</li>
-								</ul>
-							</div>
-						</div>
+						</ul>
 					</div>
 				</div>
-			</div>
-		</main>
 
-		<footer class="page-footer blue-grey lighten-5">
-			<div class="container" style="margin-right: 10%;margin-left: 10%;width:80%;">
-				<div class="row">
-
-
-							<!-- Leafbar panel -->
-							<div class="card cyan darken-1 leafbar">
+				<!-- Pending Users Panel -->
+				<div class="col s12 m6 l3 outer" style="margin-left:3%">
+					<div class="card s2 hide-on-small-only">
+						<ul class="collection with-header" style="margin-top:0px;margin-bottom:0px;">
+							<li class="collection-header teal darken-1 white-text">
+								<h4>Pending Users</h4>
+							</li>
+							<div class="inner">
+							<li class="collection-item coll-left-padding" >
 								<div class="row">
-									<form class="col s12">
-										<div class="row">
-											<div class="col s1" id="leafbar-dp">
-												<img src="../resources/images/dog.jpg" alt="IMAGE">
-											</div>
-											<div class="input-field col s10" id="leafbar-info">
-												<input id="post" placeholder="Search user" type="textbox" class="validate green lighten-4" maxlength= "140">
-											</div>
-										</div>
-										<div id="hidden">
-											<a class="waves-effect waves-light btn green lighten-4 blue-grey-text text-darken-4" id="postBtn" style="left: 400px; bottom: 15px;">Leafit <span class="glyphicon glyphicon-edit"></span></a>
-										</div>
-									</form>
+									<div class="col s3">
+										<img src="../resources/images/dog.jpg" style="height:55px;width:55px;">
+									</div>
+									<div class="col s9">
+										<a href="#!" class="collection-item text-accent-4 a-left-padding">Pabebe Boy (@E0wPhouSZ)</a>
+									</div>
 								</div>
+							</li>
+							<li class="collection-item coll-left-padding" >
+								<div class="row">
+									<div class="col s3">
+										<img src="../resources/images/dog.jpg" style="height:55px;width:55px;">
+									</div>
+									<div class="col s9">
+										<a href="#!" class="collection-item text-accent-4 a-left-padding">Fan Girl (@KathnielForever)</a>
+									</div>
+								</div>
+							</li>
+							<li class="collection-item coll-left-padding" >
+								<div class="row">
+									<div class="col s3">
+										<img src="../resources/images/dog.jpg" style="height:55px;width:55px;">
+									</div>
+									<div class="col s9">
+										<a href="#!" class="collection-item text-accent-4 a-left-padding">Ms. Pastillas (@MalandiAko)</a>
+									</div>
+								</div>
+							</li>
+							<li class="collection-item coll-left-padding" >
+								<div class="row">
+									<div class="col s3">
+										<img src="../resources/images/dog.jpg" style="height:55px;width:55px;">
+									</div>
+									<div class="col s9">
+										<a href="#!" class="collection-item text-accent-4 a-left-padding">AlDub Is Love (@AldubTamangPanahon)</a>
+									</div>
+								</div>
+							</li>
 							</div>
+						</ul>
+					</div>
 				</div>
-			</div>
-		</footer>
-		<script>
-			$(document).ready(function(){
-				$('.page-footer').pushpin({bottom});
-				$('#hidden').hide();
-				$("#postBtn").click(function postLeaf(){
-					var counter = $('#leaves').length;
-					console.log(counter);
-					var src = "../resources/images/dog.jpg";
-					var id = "tweet"+(counter+1);
-					var name = $('#username').text(); //Gets Name of the user
-					var handle = $('#userhandle').text(); //Gets handle of the user
-					var leaf = $('li:last').clone();
-					console.log(leaf);
-					var leafMsg = $('#post').val();
 
-					leaf.find('li:first').attr('id', id);
-					leaf.find('img:first').attr('src', src);
-					leaf.find('span:first').addClass('title').html("<b>"+name+"</b>"+handle);
-					leaf.find('p:first').html(leafMsg + "<br/><br/>");
-					leaf.find('table:first');
-					leaf.prependTo('#leaves');
-
-				});
-				$('#post').focus(function(){
-					$('.leafbar').animate({height:180},500,function(){})
-					$('#hidden').show();
-					$(this).animate({height:110},500,function(){});
-				}).blur(function(){
-					$('.leafbar').animate({height:50},500,function(){});
-					$('#hidden').hide();
-					$(this).animate({height:34},500,function(){});
-				});
-			});
-		</script>
+				<!-- Trends Panel -->
+				<div class="col s12 m6 l3 outer" style="margin-left:3%">
+					<div class="card s2 hide-on-small-only">
+						<ul class="collection with-header" style="margin-top:0px;margin-bottom:0px;">
+							<li class="collection-header teal darken-1 white-text">
+								<h4>Trending List</h4>
+							</li>
+							<div class="inner">
+								<li class="collection-item" >
+									<a href="#!" class="collection-item text-accent-4 a-left-padding">CMSC 127 The Best</a>
+								</li>
+								<li class="collection-item" >
+									<a href="#!" class="collection-item text-accent-4 a-left-padding">Primavera <3</a>
+								</li>
+								<li class="collection-item" >
+									<a href="#!" class="collection-item text-accent-4 a-left-padding">Mike Gwapo</a>
+								</li>
+								<li class="collection-item" >
+									<a href="#!" class="collection-item text-accent-4 a-left-padding">Papa Kean</a>
+								</li>
+								<li class="collection-item" >
+									<a href="#!" class="collection-item text-accent-4 a-left-padding">Wency We Love You</a>
+								</li>
+							</div>
+						</ul>
+					</div>
+				</div>
+		</main>
 	</body>
 </html>

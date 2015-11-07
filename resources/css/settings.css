@@ -1,0 +1,53 @@
+header, main, footer {
+  padding-left: 240px;
+}
+
+.nomargin-bot{
+	margin-bottom:0px;
+}
+.nomargin-bot img{
+	border: 2px solid #c8e6c9;
+	box-sizing: border-box;
+    border-radius: 6px;
+    margin: -30px 0 0 8px;
+    padding: 1px;
+    vertical-align: bottom;
+	position:relative;
+	height:86px; 
+	width:86px;
+	z-index: 1;
+}
+.info p{
+	font-size: 1rem;
+	margin-bottom: 0px;
+}
+.info h6{
+	font-size: 2rem;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+.info #fix{
+    padding-left: 20px;
+}
+
+.options{
+  height: 30px !important;
+}
+.spacing{
+  padding: 120px;
+}
+.spacer{
+  padding-top: 20px;
+}
+
+.collapsible-body, .settingsName{
+  padding: 30px;
+}
+
+.saveButton{
+  padding-left: 20px;
+}
+
+.collection-header{
+  padding-left: 20px;
+}

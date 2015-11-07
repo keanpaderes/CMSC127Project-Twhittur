@@ -102,3 +102,20 @@
 .a-left-padding{
   padding-left: 10px !important;
 }
+
+.outer{
+  overflow: hidden;
+}
+
+.inner{
+  max-height: 900px;
+  overflow-y: scroll;
+}
+
+.options{
+  height: 30px !important;
+}
+
+.spacing{
+  padding: 190px;
+}
