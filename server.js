@@ -2,6 +2,8 @@ var http = require("http");
 var fs = require("fs");
 var path = require("path");
 var mime = require("mime");
+var express = require ('express'); //requires the module to be used
+var app = express(); //assigns to app
 
 function send404(response) {
   response.writeHead(404, {"Content-type" : "text/plain"});
