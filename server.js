@@ -1,48 +1,20 @@
-var http = require("http");
-var fs = require("fs");
-var path = require("path");
-var mime = require("mime");
 var express = require ('express'); //requires the module to be used
+var path = require("path"); //for traversing of paths
+var bodyParser = require('body-parser');
+var serveStatic = require('serve-static');
+
 var app = express(); //assigns to app
 
-function send404(response) {
-  response.writeHead(404, {"Content-type" : "text/plain"});
-  response.write("Error 404: resource not found");
-  response.end();
-}
+var config = require(__dirname + '/config/config');
+var port_number = process.env.PORT || config.port;
 
-function sendPage(response, filePath, fileContents) {
-  response.writeHead(200, {"Content-type" : mime.lookup(path.basename(filePath))});
-  response.end(fileContents);
-}
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-function serverWorking(response, absPath) {
-  fs.exists(absPath, function(exists) {
-    if (exists) {
-      fs.readFile(absPath, function(err, data) {
-        if (err) {
-          send404(response)
-        } else {
-          sendPage(response, absPath, data);
-        }
-      });
-    } else {
-      send404(response);
-    }
-  });
-}
-
-var server = http.createServer(function(request, response) {
-  var filePath = false;
-
-  if (request.url == '/') {
-    filePath = "public/Landing.html";
-  } else {
-    filePath = "public" + request.url;
-  }
-
-  var absPath = "./" + filePath;
-  serverWorking(response, absPath);
+app.use(serveStatic(__dirname + '/public'));
+app.get('/', function(req,res){
+  res.redirect('/index.html');
 });
 
-var port_number = server.listen(process.env.PORT || 8080);
+app.listen(port_number);
+console.log("Express Web Server up and runnning on http://localhost:"+config.port);
