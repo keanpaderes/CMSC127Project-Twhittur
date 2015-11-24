@@ -1,0 +1,124 @@
+/* SIDENAV */
+
+  header, main, footer {
+    padding-left: 240px;
+  }
+
+  @media only screen and (max-width : 992px) {
+    header, main, footer {
+      padding-left: 0;
+    }
+  }
+
+	li.infocard{
+		padding-left: 0px;
+		padding-right: 0px;	
+	}
+	.infocard{		
+    margin-top: 0px;
+    margin-bottom: 0px;
+	}
+
+  body {
+    display: flex;
+    min-height: 98vh;
+    flex-direction: column;
+  }
+  main {
+    flex: 1 0 auto;
+  }
+.leafbar{
+	height: 50px;
+}
+.leafbar img{
+	border: 2px solid #c8e6c9;
+	box-sizing: border-box;
+    border-radius: 6px;
+    margin: -30px 0 0 8px;
+    padding: 1px;
+    vertical-align: bottom;
+	position:relative;
+	height:40px; 
+	width:40px;
+}
+.leafbar input{
+	font-size: 2rem;
+	width: 100%;
+}
+#leafbar-dp{	
+    padding-left: 35px;
+    padding-top: 25px;
+}
+#leafbar-info{
+	padding-left: 45px;
+	font-size: 2rem;
+} 
+ 
+.nav-wrapper #dp{
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.nomargin-bot img{
+	border: 2px solid #c8e6c9;
+	box-sizing: border-box;
+    border-radius: 6px;
+    margin: -30px 0 0 8px;
+    padding: 1px;
+    vertical-align: bottom;
+	position:relative;
+	height:86px; 
+	width:86px;
+	z-index: 1;
+}
+
+.nomargin-bot2 img{
+  border: 2px solid #c8e6c9;
+  box-sizing: border-box;
+  border-radius: 6px;
+  margin: -100px -130px 10px 50px;
+  padding: 1px;
+  vertical-align: bottom;
+  position:relative;
+  height:120px; 
+  width:120px;
+  z-index: 1;
+}
+
+.info p{
+	font-size: 1rem;
+	margin-bottom: 0px;
+  margin-top: -30px;
+}
+.info h4{
+  font-size: 2rem;
+  margin-bottom: 0px;
+}
+.info h6{
+	font-size: 2rem;
+	margin-top: -20px;
+	margin-bottom: 0px;
+}
+.info #fix{
+    padding-left: 20px;
+}
+
+.coll-left-padding{
+  padding-left: 15px !important;
+}
+
+.a-left-padding{
+  padding-left: 10px !important;
+}
+
+.options{
+  height: 30px !important;
+}
+
+.spacing{
+  padding: 190px;
+}
+
+.details{
+  background-color: white;
+  height: 90px !important;    
+}

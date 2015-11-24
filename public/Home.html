@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -10,9 +11,9 @@
 		<!--Let browser know website is optimized for mobile-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<!--Import jQuery before materialize.js-->
-		<!--<script type="text/javascript" src="../resources/js/jquery-2.1.3.js"></script>
+		<script type="text/javascript" src="../resources/js/jquery-2.1.3.js"></script>
 		<script type="text/javascript" src="../resources/js/materialize.min.js"></script>
-		<script src="../resources/js/bootstrap.js"></script>-->
+		<script src="../resources/js/bootstrap.js"></script>
 	</head>
 	<body class="blue-grey lighten-5">
 
@@ -64,28 +65,31 @@
 							</tbody>
 						</table>
 					</div>
-					<li style="margin-top:100px"><a href="Home.html" class="" style="padding-top:10px;"><h4>Home</h4></a></li>
-					<li><a href="#!" class="grey-text text-lighten-4" style="padding-top:10px;"><h4>Notifications</h4></a></li>
-					<li><a href="#!" class="grey-text text-lighten-4" style="padding-top:10px;"><h4>Mentions</h4></a></li>
-					<li><a href="Settings.html" class="grey-text text-lighten-4" style="padding-top:10px;"><h4>Settings</h4></a></li>
-					<li><a href="index.html" class="grey-text text-lighten-4" style="padding-top:10px;"><h4>Sign Out</h4></a></li>
+					<li style="margin-top:0px" >
+						<a href="Home.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+							view_headline</i> Home</h4></a></li>
+					<li><a href="Notifications.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+							announcement</i> Notifications</h4></a></li>
+					<li><a href="Profile.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+							contacts</i> Profile</h4></a></li>
+					<li><a href="Search.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+							search</i> Search</h4></a></li>
+					<li><a href="Settings.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+							settings</i> Settings</h4></a></li>
+					<li><a href="index.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+							power_settings_new</i> Sign Out</h4></a></li>
 				</ul>
-				<!--<a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>-->
 			</div>
 		</header>
 
 		<main class="blue-grey lighten-5">
 			<div class="container" style="margin-left:8%; margin-right:8%;width:90%;">
 				<div class="section">
-					<div class="row tweet-collection" style="width:100%;">
+					<div id="tweetz" class="row tweet-collection" style="width:100%;">
+
 						<!-- Hardcoded Tweets -->
 						<div id="tweet0" class="col s12 m6 l8" style="width: 70%;">
-							<div class="card-panel white tweet" style="
-								padding-left: 0px;
-								padding-right: 0px;
-								padding-top: 0px;
-								padding-bottom: 0px;
-							">
+							<div class="card-panel white tweet" style="padding: 0px;">
 								<ul class="collection">
 									<li class="collection-item avatar white lighten-4">
 										<img src="./resources/images/dog.jpg" class="circle">
@@ -121,12 +125,96 @@
 									</li>
 								</ul>
 							</div>
+						</div>
 
+						<div id="tweet1" class="col s12 m6 l8" style="width: 70%;">
+							<div class="card-panel white tweet" style="
+								padding-left: 0px;
+								padding-right: 0px;
+								padding-top: 0px;
+								padding-bottom: 0px;">
+								<ul class="collection">
+									<li class="collection-item avatar white lighten-4">
+										<img src="./resources/images/dog.jpg" class="circle">
+										<span class="title"><b>Doge Dogeson</b>@WowSoPunny</span>
+										<p>This is tweet number 2.<br/><br/>
+											<table class="info">
+												<tbody>
+													<tr>
+														<td>
+															<a href="#">
+																<span class="glyphicon glyphicon-share-alt blue-grey-text text-darken-4" aria-hidden="true"></span>
+															</a>
+														</td>
+														<td>
+															<a href="#">
+																<span class="glyphicon glyphicon-refresh blue-grey-text text-darken-4" aria-hidden="true"></span>
+															</a>
+														</td>
+														<td>
+															<a href="#">
+																<span class="glyphicon glyphicon-heart blue-grey-text text-darken-4" aria-hidden="true"></span>
+															</a>
+														</td>
+														<td>
+															<a href="#">
+																<span class="glyphicon glyphicon-option-horizontal blue-grey-text text-darken-4" aria-hidden="true"></span>
+															</a>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</p>
+									</li>
+								</ul>
+							</div>
+						</div>
 
+						<div id="tweet2" class="col s12 m6 l8" style="width: 70%;">
+							<div class="card-panel white tweet" style="
+								padding-left: 0px;
+								padding-right: 0px;
+								padding-top: 0px;
+								padding-bottom: 0px;">
+								<ul class="collection">
+									<li class="collection-item avatar white lighten-4">
+										<img src="./resources/images/dog.jpg" class="circle">
+										<span class="title"><b>Doge Dogeson</b>@WowSoPunny</span>
+										<p>This is tweet number 3.<br/><br/>
+											<table class="info">
+												<tbody>
+													<tr>
+														<td>
+															<a href="#">
+																<span class="glyphicon glyphicon-share-alt blue-grey-text text-darken-4" aria-hidden="true"></span>
+															</a>
+														</td>
+														<td>
+															<a href="#">
+																<span class="glyphicon glyphicon-refresh blue-grey-text text-darken-4" aria-hidden="true"></span>
+															</a>
+														</td>
+														<td>
+															<a href="#">
+																<span class="glyphicon glyphicon-heart blue-grey-text text-darken-4" aria-hidden="true"></span>
+															</a>
+														</td>
+														<td>
+															<a href="#">
+																<span class="glyphicon glyphicon-option-horizontal blue-grey-text text-darken-4" aria-hidden="true"></span>
+															</a>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</p>
+									</li>
+								</ul>
+							</div>
 						</div>
 
 						<!-- Trends Panel -->
-						<div class="col s12 m6 l3" style="margin-left:5%;">
+						<!----<div class="col s12 m6 l3" style="margin-left:5%;">
 							<div class="card s2 hide-on-small-only">
 								<ul class="collection with-header" style="margin-top:0px;margin-bottom:0px;">
 									<li class="collection-header cyan darken-1 blue-grey-text text-darken-2">
@@ -140,7 +228,7 @@
 									</li>
 								</ul>
 
-							</div>
+							</div>---->
 						</div>
 					</div>
 				</div>
@@ -150,8 +238,6 @@
 		<footer class="page-footer blue-grey lighten-5">
 			<div class="container" style="margin-right: 10%;margin-left: 10%;width:80%;">
 				<div class="row">
-
-
 							<!-- Leafbar panel -->
 							<div class="card cyan darken-1 leafbar">
 								<div class="row">
@@ -164,10 +250,6 @@
 											  <textarea class="form-control validate green lighten-4" maxlength= "140" height="500" id="postTweet" placeholder="What's happening?" style="margin-top:5px;height:40px;"></textarea>
 												<a class="waves-effect waves-light btn yellow  blue-grey-text text-darken-4" id="postBtn" style="top:-36px;left:104%;">Leafit <span class="glyphicon glyphicon-edit"></span></a>
 											</div>
-											<!--<div class="input-field col s9" id="leafbar-info">
-												<input id="post" placeholder="What's happening?" type="text" class="validate green lighten-4" maxlength= "140">
-												<a class="waves-effect waves-light btn yellow  blue-grey-text text-darken-4" id="postBtn" style="top:-36px;left:104%;">Leafit <span class="glyphicon glyphicon-edit"></span></a>
-											</div>-->
 										</div>
 
 									</form>
@@ -183,19 +265,6 @@
 		<script>
 			$(document).ready(function(){
 				var leafbarHeight;
-				/*(function init(){
-					var stuff = [];
-					$.get("templates/tweet.html", function(mov){
-						$.template("tweet_template",mov);
-						$.getJSON("movies.json", function(obj){
-							movies = obj;
-							for(var i = (range-3); i < range; i++){
-									$.tmpl("movies_template", movies[i]).appendTo("#catalog");
-							}
-							paginate();
-						});
-					});
-				})();*/
 				$('#postTweet').click(function(){
 					leafbarHeight = $('.leafbar').height();
 					$('.leafbar').animate({height:"9em"}, 500);
@@ -211,19 +280,13 @@
 					var counter = $('#tweets').length;
 					var src = "../public/resources/images/dog.jpg";
 					var id = "tweet"+(counter+1);
-					var name = $('#username').text(); //Gets Name of the user\
+					var name = $('#username').text(); //Gets Name of the user
 					var handle = $('#userhandle').text(); //Gets handle of the user
 					var leaf = $('#tweet0').clone();
 					var leafMsg = $('#postTweet').val();
-					//leaf.find('li:first').attr('id', id);
-					//leaf.find('img:first').attr('src', src);
-					//leaf.find('span:first').addClass('title').html("<b>"+name+"</b>"+handle);
-					//leaf.find('p:first').html(leafMsg + "");
-					//leaf.find('table:first');
-					leaf.prependTo('#tweet-collection');
-					$('#tweet0').find('p:first').html("SHIT WHY WONT YOU WORK?");
+					$( "#tweetz" ).prepend(leaf);
+					$('#tweet0').find('p:first').html(leafMsg);
 				});
-
 			});
 		</script>
 	</body>
