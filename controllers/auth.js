@@ -12,6 +12,11 @@ exports.getUsers = function(req,res,next){ //callback function
   });
 };
 
+exports.regPage = function(req,res,next){ //callback function
+  req.session.isRegistering = true;
+  res.redirect('/register');
+};
+
 exports.logIn = function(req,res,next){ //callback function
   pg.connect(conString, function(err, client, done){
     if(err) return console.error('could not connect to pgdb', err);
@@ -20,7 +25,10 @@ exports.logIn = function(req,res,next){ //callback function
           console.error("ERROR IN UPDATE!", err);
         }
         req.session.email = req.body.email;
-  			res.redirect('/normal');
+        req.session.utype = req.body.utype;
+        req.session.backURL = req.body.backURL;
+        console.log(req.body.backURL)
+  			res.send(result);
         done();
   	});
   });

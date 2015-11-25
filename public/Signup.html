@@ -1,7 +1,7 @@
 <!DOCTYPE html>
   <html>
   <head>
-	<title>Sign Up</title>
+		<title>Twitthur / Sign Up</title>
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
@@ -32,20 +32,14 @@
                   <form class="col s12 m12 l12">
                     <div class="row">
                       <div class="input-field col s12 m12 l12 valign">
-                        <input id="twitterhandle" type="text" class="validate">
-                        <label for="twitterhandle">Twhittur Handle</label>
+                        <input id="signup-handle" type="text" class="validate">
+                        <label for="signup-handle">Twhittur Handle</label>
                       </div>
                     </div>
-		    <div class="row">
+		                <div class="row">
                       <div class="input-field col s12 m12 l12 valign">
-                        <input id="address" type="text" class="validate">
-                        <label for="address">Address</label>
-                      </div>
-                    </div>
-		    <div class="row">
-                      <div class="input-field col s12 m12 l12 valign">
-                        <input id="bio" type="text" class="validate">
-                        <label for="bio">Bio</label>
+                        <textarea id="signup-description" class="materialize-textarea"></textarea>
+                        <label for="signup-description">Profile Description (Minimum of 255)</label>
                       </div>
                     </div>
                     <div class="center">
@@ -63,20 +57,31 @@
 </div>
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="./resources/js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="./resources/js/jquery.cookie.js"></script>
         <script type="text/javascript" src="./resources/js/materialize.min.js"></script>
   	  <script>
+      var pendingUser = JSON.parse($.cookie('pendingData'));
       $(document).ready(function(){
         $('ul.tabs').tabs('select_tab', 'test1');
-        $('#signin-button').click(function(){
-          var authName = $('#username').val();
-          var authPass = $('#password').val();
 
-          if(authName == "doge101@doge.com"){
-            //console.log("eureka!");
-            if(authPass == "dogeharthart"){
-              window.open ('Home.html','_self',false)
-            }
-          }
+        $('#signup-button').click(function(){
+          var pendingHandle = $('#signup-handle').val();
+          var pendingBio = $('#signup-description').val();
+          $.ajax({
+             url: 'http://localhost:8080/register',
+             method: 'POST',
+             data:  {
+               id: pendingUser.id,
+               name: pendingUser.name,
+               email: pendingUser.email,
+               password: pendingUser.password,
+               handle: pendingHandle,
+               bio: pendingBio
+             },
+             success: setTimeout(function(){
+               window.location.href = "http://localhost:8080/"; //Set Landing Page for registration
+             },2000)
+           });//*/
         });
       });
   	  </script>
