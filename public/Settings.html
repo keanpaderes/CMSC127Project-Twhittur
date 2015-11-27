@@ -26,8 +26,8 @@
 								<img src="./resources/images/dog.jpg" style="left:70px;bottom:50px;">
 							</div>
 							<div class="col s8 m8 offset-s2 offset-m2" id="info">
-								<h4 class="blue-grey-text text-darken-4 flow-text"><b>Doge Dogeson</b></h4>
-								<h6 class="blue-grey-text text-darken-4 flow-text">@WowSoPunny</h6>
+								<h4 class="blue-grey-text text-darken-4 flow-text"><b id="curruser-user_name"></b></h4>
+								<h6 id="curruser-normal_handle" class="blue-grey-text text-darken-4 flow-text"></h6>
 							</div>
 						</div>
 					</div>
@@ -38,19 +38,19 @@
 									<td id="fix">
 										<a href="#" style="padding-right: 0px;padding-left: 5px;">
 											<p class="blue-grey-text text-darken-4 flow-text">TWEETS</p>
-											<h6 class=" yellow-text text-accent-4 flow-text">9,999</h6>
+											<h6 id="curruser-tweets" class=" yellow-text text-accent-4 flow-text"></h6>
 										</a>
 									</td>
 									<td>
 										<a href="#" style="padding-left:0px;padding-right: 0px;">
-											<p class="blue-grey-text text-darken-4 flow-text">FOLLOWING</p>
-											<h6 class=" yellow-text text-accent-4 flow-text">9,999</h6>
+											<p class="blue-grey-text text-darken-4 flow-text">FAVOURITES</p>
+											<h6 id="curruser-favourites" class=" yellow-text text-accent-4 flow-text"></h6>
 										</a>
 									</td>
 									<td>
 										<a href="#" style="padding-left:0px;padding-right: 0px;">
-											<p class="blue-grey-text text-darken-4 flow-text">FOLLOWERS</p>
-											<h6 class=" yellow-text text-accent-4 flow-text">9,999</h6>
+											<p class="blue-grey-text text-darken-4 flow-text">RETWEETS</p>
+											<h6 id="curruser-retweets" class=" yellow-text text-accent-4 flow-text"></h6>
 										</a>
 									</td>
 								</tr>
@@ -58,17 +58,17 @@
 						</table>
 					</div>
 					<li style="margin-top:0px" >
-						<a href="Home.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+						<a href="/normal" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
 							view_headline</i> Home</h4></a></li>
-					<li><a href="Notifications.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+					<li><a href="/notifications" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
 							announcement</i> Notifications</h4></a></li>
-					<li><a href="Profile.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+					<li><a href="/profile" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
 							contacts</i> Profile</h4></a></li>
-					<li><a href="Search.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+					<li><a href="/search" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
 							search</i> Search</h4></a></li>
-					<li><a href="Settings.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+					<li><a href="/settings" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
 							settings</i> Settings</h4></a></li>
-					<li><a href="index.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+					<li><a href="/signout" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
 							power_settings_new</i> Sign Out</h4></a></li>
 					</div>
 
@@ -84,11 +84,11 @@
 						<ul class="collapsible" data-collapsible="accordion">
 						<li class="collection-header" style="height:30px;"><h4>Account Information</h4></li>
 					    <li>
-					      <div class="collapsible-header" ><i class="large material-icons">perm_identity</i>Edit Username</div>
-					      <div class="collapsible-body">Current Username: WowSoPunny<br/>
-					      	New Username:<input type="email" id="inputEmail">
+					      <div class="collapsible-header" ><i class="large material-icons">perm_identity</i>Edit Handle</div>
+					      <div class="collapsible-body">Current Handle: <p id="show-normal_handle"></p><br/>
+					      	New Handle:<input type="email" id="newHandle"/>
 					      	<div class="saveButton">
-								<button class="btn waves-effect waves-light" type="submit" name="action">Save Changes
+								<button id="changeHandle" class="btn waves-effect waves-light" type="submit" name="action">Save Changes
 				    			<i class="material-icons right">send</i>
 				  				</button>
 							</div>
@@ -96,10 +96,10 @@
 					    </li>
 					    <li>
 					      <div class="collapsible-header"><i class="large material-icons">email</i>Edit Email Address</div>
-					      <div class="collapsible-body">Current Email Address: WowSoPunny@gmail.com<br/>
-					      	New Email Address:<input type="email" id="inputEmail">
+					      <div class="collapsible-body">Current Email Address: <p id="show-user_email"></p><br/>
+					      	New Email Address:<input type="email" id="newEmail">
 					      	<div class="saveButton">
-								<button class="btn waves-effect waves-light" type="submit" name="action">Save Changes
+								<button id="changeEmail" class="btn waves-effect waves-light" type="submit" name="action">Save Changes
 				    			<i class="material-icons right">send</i>
 				  				</button>
 							</div>
@@ -108,10 +108,10 @@
 					    <li>
 					      <div class="collapsible-header"><i class="large material-icons">vpn_key</i>Edit Password</div>
 					      <div class="collapsible-body">Current Password: ********<br/>
-					      	New Password:<input type="email" id="inputEmail">
-					      	Retype New Password:<input type="email" id="inputEmail">
+					      	New Password:<input type="email" id="newPassword">
+					      	Retype New Password:<input type="email" id="confirmPassword">
 					      	<div class="saveButton">
-								<button class="btn waves-effect waves-light" type="submit" name="action">Save Changes
+								<button id="changePassword" class="btn waves-effect waves-light" type="submit" name="action">Save Changes
 				    			<i class="material-icons right">send</i>
 				  				</button>
 							</div>
@@ -122,10 +122,10 @@
 					    <li class="collection-header" style="height:30px;"><h4>  User Information</h4></li>
 					    <li>
 					      <div class="collapsible-header"><i class="large material-icons">contacts</i>Edit Full Name</div>
-					      <div class="collapsible-body">Current Full Name: Doge Dogeson<br/>
-					      	New Full Name:<input type="email" id="inputEmail">
+					      <div class="collapsible-body">Current Full Name: <p id="show-user_name"></p><br/>
+					      	New Full Name:<input type="email" id="newName">
 					      	<div class="saveButton">
-								<button class="btn waves-effect waves-light" type="submit" name="action">Save Changes
+								<button  id="changeName" class="btn waves-effect waves-light" type="submit" name="action">Save Changes
 				    			<i class="material-icons right">send</i>
 				  				</button>
 							</div>
@@ -133,9 +133,10 @@
 					    </li>
 					    <li>
 					      <div class="collapsible-header"><i class="large material-icons">comment</i>Edit Profile Description</div>
-					      <div class="collapsible-body">New Profile Description:<input type="email" id="inputEmail">
-					      	<div class="saveButton">
-								<button class="btn waves-effect waves-light" type="submit" name="action">Save Changes
+					      <div class="collapsible-body">New Profile Description:
+									<textarea id="signup-description" class="materialize-textarea"></textarea>
+									<label for="signup-description">Profile Description (Minimum of 255)</label>
+								<button id="changeDesc" class="btn waves-effect waves-light" type="submit" name="action">Save Changes
 				    			<i class="material-icons right">send</i>
 				  				</button>
 							</div>
@@ -146,23 +147,129 @@
 			</div>
 		</main>
 		<script>
-			$(document).ready(function(){
-				$('.page-footer').pushpin({bottom});
-				$('#hidden').hide();
-				$('#post').focus(function(){
-					$('.leafbar').animate({height:180},500,function(){})
-					$('#hidden').show();
-					$(this).animate({height:110},500,function(){});
-				}).blur(function(){
-					$('.leafbar').animate({height:50},500,function(){});
-					$('#hidden').hide();
-					$(this).animate({height:34},500,function(){});
+			function start(){
+				$.ajax({
+					url: '/init-user',
+					method: 'GET',
+					success: init_userbase
 				});
-    $('.collapsible').collapsible({
-      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-    });
-  });
-			});
+			};
+			function init_userbase(data){
+				var currUser = data;
+				console.log(currUser.user_name);
+				$('#curruser-user_name').text(currUser.user_name);
+				$('#curruser-normal_handle').text(currUser.normal_handle);
+				$('#show-user_name').text(currUser.user_name);
+				$('#show-normal_handle').text(currUser.normal_handle);
+				$('#show-user_email').text(currUser.user_email);
+
+				$.getJSON('/init-count-tweets',function(data){
+						var count = data;
+						$('#curruser-tweets').html(count);
+				});
+
+				$.getJSON('/init-count-favourites',function(data){
+						var count = data;
+						$('#curruser-favourites').html(count);
+				});
+
+				$.getJSON('/init-count-retweets',function(data){
+						var count = data;
+						$('#curruser-retweets').html(count);
+				});
+
+				$(document).ready(function(){
+					$('.tooltipped').tooltip({delay: 50});
+					$('#hidden').hide();
+					$('#post').focus(function(){
+						$('.leafbar').animate({height:180},500,function(){})
+						$('#hidden').show();
+						$(this).animate({height:110},500,function(){});
+						}).blur(function(){
+							$('.leafbar').animate({height:50},500,function(){});
+							$('#hidden').hide();
+							$(this).animate({height:34},500,function(){});
+						});
+				    $('.collapsible').collapsible({
+				      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+				    });
+						$('#changeHandle').click(function(){
+							var newHandle = $('#newHandle').val();
+							$.ajax({
+								 url: 'http://localhost:8080/change-handle',
+								 method: 'PUT',
+								 data:  {
+									 handle: newHandle
+								 },
+								 success: setTimeout(function(){
+									 Materialize.toast('Succesfully changed your handle.', 4000);
+									 $('#curruser-normal_handle').text(newHandle);
+									 $('#show-normal_handle').text(newHandle);
+								 },1000)
+							 });
+						});
+						$('#changeEmail').click(function(){
+							var newEmail = $('#newEmail').val();
+							$.ajax({
+								 url: 'http://localhost:8080/change-email',
+								 method: 'PUT',
+								 data:  {
+									 email: newEmail
+								 },
+								 success: setTimeout(function(){
+									 Materialize.toast('Succesfully changed your email.', 4000);
+									 $('#show-user_email').text(newEmail);
+								 },1000)
+							 });
+						});
+						$('#changePassword').click(function(){
+							var newPassword = $('#newPassword').val();
+							var confPassword = $('#confirmPassword').val();
+							if(newPassword === confPassword){
+								$.ajax({
+									 url: 'http://localhost:8080/change-password',
+									 method: 'PUT',
+									 data:  {
+										 password: newPassword
+									 },
+									 success: setTimeout(function(){
+										 Materialize.toast('Succesfully changed your password.', 4000);
+									 },1000)
+								 });
+							} else {
+								Materialize.toast('Please recheck your password.', 4000);
+							}
+						});
+						$('#changeName').click(function(){
+							var newName = $('#newName').val();
+							$.ajax({
+								 url: 'http://localhost:8080/change-name',
+								 method: 'PUT',
+								 data:  {
+									 name: newName
+								 },
+								 success: setTimeout(function(){
+									 Materialize.toast('Succesfully changed your name.', 4000);
+									 $('#curruser-user_name').text(newName);
+									 $('#show-user_name').text(newName);
+								 },1000)
+							 });
+						});
+						$('#changeDesc').click(function(){
+							var newName = $('#newName').val();
+							$.ajax({
+								 url: 'http://localhost:8080/change-description',
+								 method: 'PUT',
+								 data:  {
+									 name: newName
+								 },
+								 success: setTimeout(function(){
+									 Materialize.toast('Succesfully changed your profile description.', 4000);
+								 },1000)
+							 });
+						});
+					});
+			}; start();
 		</script>
 	</body>
 </html>

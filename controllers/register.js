@@ -16,7 +16,7 @@ exports.regUser = function(req,res,next){
   if(req.session.isRegistering == true){
     pg.connect(conString, function(err, client, done){
       if(err) return next(err);
-      client.query('INSERT INTO twhittur_user VALUES ($1, $2, $3, $4, FALSE, 1, NULL, $5, $6, 0, FALSE)', [
+      client.query('INSERT INTO user1 VALUES ($1, $2, $3, $4, FALSE, 1, NULL, $5, $6, 0, FALSE)', [
         req.body.id,
         req.body.name,
         req.body.email,

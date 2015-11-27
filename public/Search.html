@@ -27,8 +27,8 @@
 								<img src="./resources/images/dog.jpg" style="left:70px;bottom:50px;">
 							</div>
 							<div class="col s8 m8 offset-s2 offset-m2" id="info">
-								<h4 class="blue-grey-text text-darken-4 flow-text"><b>Doge Dogeson</b></h4>
-								<h6 class="blue-grey-text text-darken-4 flow-text">@WowSoPunny</h6>
+								<h4 class="blue-grey-text text-darken-4 flow-text"><b id="curruser-user_name"></b></h4>
+								<h6 id="curruser-normal_handle" class="blue-grey-text text-darken-4 flow-text"></h6>
 							</div>
 						</div>
 					</div>
@@ -39,19 +39,19 @@
 									<td id="fix">
 										<a href="#" style="padding-right: 0px;padding-left: 5px;">
 											<p class="blue-grey-text text-darken-4 flow-text">TWEETS</p>
-											<h6 class=" yellow-text text-accent-4 flow-text">9,999</h6>
+											<h6 id="curruser-tweets" class=" yellow-text text-accent-4 flow-text"></h6>
 										</a>
 									</td>
 									<td>
 										<a href="#" style="padding-left:0px;padding-right: 0px;">
-											<p class="blue-grey-text text-darken-4 flow-text">FOLLOWING</p>
-											<h6 class=" yellow-text text-accent-4 flow-text">9,999</h6>
+											<p class="blue-grey-text text-darken-4 flow-text">FAVOURITES</p>
+											<h6 id="curruser-favourites" class=" yellow-text text-accent-4 flow-text"></h6>
 										</a>
 									</td>
 									<td>
 										<a href="#" style="padding-left:0px;padding-right: 0px;">
-											<p class="blue-grey-text text-darken-4 flow-text">FOLLOWERS</p>
-											<h6 class=" yellow-text text-accent-4 flow-text">9,999</h6>
+											<p class="blue-grey-text text-darken-4 flow-text">RETWEETS</p>
+											<h6 id="curruser-retweets" class=" yellow-text text-accent-4 flow-text"></h6>
 										</a>
 									</td>
 								</tr>
@@ -59,17 +59,17 @@
 						</table>
 					</div>
 					<li style="margin-top:0px" >
-						<a href="Home.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+						<a href="/normal" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
 							view_headline</i> Home</h4></a></li>
-					<li><a href="Notifications.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+					<li><a href="/notifications" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
 							announcement</i> Notifications</h4></a></li>
-					<li><a href="Profile.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+					<li><a href="/profile" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
 							contacts</i> Profile</h4></a></li>
-					<li><a href="Search.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+					<li><a href="/search" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
 							search</i> Search</h4></a></li>
-					<li><a href="Settings.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+					<li><a href="/settings" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
 							settings</i> Settings</h4></a></li>
-					<li><a href="index.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+					<li><a href="/signout" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
 							power_settings_new</i> Sign Out</h4></a></li>
 					</div>
 
@@ -90,6 +90,33 @@
 			</div>
 		</main>
 		<script>
+		function start(){
+			$.ajax({
+				url: '/init-user',
+				method: 'GET',
+				success: init_userbase
+			});
+		};
+		function init_userbase(data){
+			var currUser = data;
+			$("#curruser-user_name").text(currUser.user_name);
+			$("#curruser-normal_handle").text(currUser.normal_handle);
+
+			$.getJSON('/init-count-tweets',function(data){
+					var count = data;
+					$('#curruser-tweets').html(count);
+			});
+
+			$.getJSON('/init-count-favourites',function(data){
+					var count = data;
+					$('#curruser-favourites').html(count);
+			});
+
+			$.getJSON('/init-count-retweets',function(data){
+					var count = data;
+					$('#curruser-retweets').html(count);
+			});
+
 			$(document).ready(function(){
 				$('.page-footer').pushpin({bottom});
 				$('#hidden').hide();
@@ -102,11 +129,12 @@
 					$('#hidden').hide();
 					$(this).animate({height:34},500,function(){});
 				});
-    $('.collapsible').collapsible({
-      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-    });
-  });
-			});
+		    $('.collapsible').collapsible({
+		      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+			    });
+			  });
+		};
+		start();
 		</script>
 	</body>
 </html>

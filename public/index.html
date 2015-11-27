@@ -137,7 +137,6 @@
                       method: 'PUT',
                       data:  {
                         email: authEmail,
-                        password: authPass,
                         utype: authType,
                         backURL: backURL
                       },
@@ -162,21 +161,29 @@
             var regName = $('#signup-name').val();
             var regEmail = $('#signup-email').val();
             var regPassword = $('#signup-password').val();
+            var exist = 0;
             var pendingUser = {
               id: regId,
               name: regName,
               email: regEmail,
               password: regPassword
             };
-
-            $.cookie('pendingData', JSON.stringify(pendingUser));
-            $.ajax({
-               url: 'http://localhost:8080/auth',
-               method: 'POST',
-               success: setTimeout(function(){
-                 window.location.href = "http://localhost:8080/register";
-               },2000)
-             });//*/
+            for(var i = 0; i < user_db.length; i++){
+              if(regEmail === user_db[i].user_email){
+                alert("ERROR: Account already exists!");
+                exist = 1;
+              }
+            }
+            if(exist != 1){
+              $.cookie('pendingData', JSON.stringify(pendingUser));
+              $.ajax({
+                 url: 'http://localhost:8080/auth',
+                 method: 'POST',
+                 success: setTimeout(function(){
+                   window.location.href = "http://localhost:8080/register";
+                 },2000)
+               });
+            }
           });
         });
       }

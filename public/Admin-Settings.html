@@ -6,13 +6,13 @@
 		<link type="text/css" rel="stylesheet" href="./resources/css/materialize.min.css"  media="screen,projection"/>
 		<link href="./resources/css/bootstrap.css" rel="stylesheet">
 		 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link href="./resources/css/settings.css" rel="stylesheet">
+		<link href="./resources/css/custom.css" rel="stylesheet">
 		<!--Let browser know website is optimized for mobile-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<!--Import jQuery before materialize.js-->
-		<script type="text/javascript" src="./resources/js/jquery-2.1.3.js"></script>
-		<script type="text/javascript" src="./resources/js/materialize.min.js"></script>
-		<script src="./resources/js/bootstrap.js"></script>
+		<script type="text/javascript" src="../resources/js/jquery-2.1.3.js"></script>
+		<script type="text/javascript" src="../resources/js/materialize.min.js"></script>
+		<script src="../resources/js/bootstrap.js"></script>
 	</head>
 	<body class="blue-grey lighten-5">
 
@@ -26,22 +26,22 @@
 								<img src="./resources/images/dog.jpg" style="left:70px;bottom:50px">
 							</div>
 							<div class="col s8 m8 offset-s2 offset-m2" id="info">
-								<h4 class="blue-grey-text text-darken-4 flow-text"><b>Admin Adminson</b></h4>
-								<h6 class="blue-grey-text text-darken-4 flow-text">Master Admin</h6>
+								<h4 class="blue-grey-text text-darken-4 flow-text"><b id="curruser-user_name"></b></h4>
+								<h6 id="curruser-admin_handle" class="blue-grey-text text-darken-4 flow-text"></h6>
 							</div>
 						</div>
 					</div>
-					<li><a href="Admin.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+					<li><a href="/admin" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
 							person_pin</i> Active Users</h4></a></li>
-					<li><a href="Pending-Users.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+					<li><a href="/admin-pending" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
 							new_releases</i> Pending Users</h4></a></li>
-					<li><a href="Trending.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+					<li><a href="/admin-trending" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
 							trending_up</i> Trending</h4></a></li>
-					<li><a href="Admin-Search.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+					<li><a href="/admin-search" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
 							search</i> Search</h4></a></li>
-					<li><a href="Admin-Settings.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+					<li><a href="/admin-settings" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
 							settings</i> Settings</h4></a></li>
-					<li><a href="index.html" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
+					<li><a href="/admin-signout" class="grey-text text-lighten-4" style="padding-top:5px;"><h4><i class="material-icons">
 							power_settings_new</i> Sign Out</h4></a></li>
 				</ul>
 			</div>
@@ -55,86 +55,168 @@
 					<div class="col s12 m6 l3" style="margin-left:0%;">
 						<ul class="collapsible" data-collapsible="accordion">
 						<li class="collection-header" style="height:30px;"><h4>Account Information</h4></li>
-					    <li>
-					      <div class="collapsible-header" ><i class="large material-icons">perm_identity</i>Edit Username</div>
-					      <div class="collapsible-body">Current Username: WowSoPunny<br/>
-					      	New Username:<input type="email" id="inputEmail">
-					      	<div class="saveButton">
-								<button class="btn waves-effect waves-light" type="submit" name="action">Save Changes
-				    			<i class="material-icons right">send</i>
-				  				</button>
+							<li>
+								<div class="collapsible-header" ><i class="large material-icons">perm_identity</i>Edit Handle</div>
+								<div class="collapsible-body">Current Handle: <p id="show-admin_handle"></p><br/>
+									New Handle:<input type="email" id="newHandle"/>
+									<div class="saveButton">
+								<button id="changeHandle" class="btn waves-effect waves-light" type="submit" name="action">Save Changes
+									<i class="material-icons right">send</i>
+									</button>
 							</div>
-					      </div>
-					    </li>
-					    <li>
-					      <div class="collapsible-header"><i class="large material-icons">email</i>Edit Email Address</div>
-					      <div class="collapsible-body">Current Email Address: WowSoPunny@gmail.com<br/>
-					      	New Email Address:<input type="email" id="inputEmail">
-					      	<div class="saveButton">
-								<button class="btn waves-effect waves-light" type="submit" name="action">Save Changes
-				    			<i class="material-icons right">send</i>
-				  				</button>
+								</div>
+							</li>
+							<li>
+								<div class="collapsible-header"><i class="large material-icons">email</i>Edit Email Address</div>
+								<div class="collapsible-body">Current Email Address: <p id="show-user_email"></p><br/>
+									New Email Address:<input type="email" id="newEmail">
+									<div class="saveButton">
+								<button id="changeEmail" class="btn waves-effect waves-light" type="submit" name="action">Save Changes
+									<i class="material-icons right">send</i>
+									</button>
 							</div>
-					      </div>
-					    </li>
-					    <li>
-					      <div class="collapsible-header"><i class="large material-icons">vpn_key</i>Edit Password</div>
-					      <div class="collapsible-body">Current Password: ********<br/>
-					      	New Password:<input type="email" id="inputEmail">
-					      	Retype New Password:<input type="email" id="inputEmail">
-					      	<div class="saveButton">
-								<button class="btn waves-effect waves-light" type="submit" name="action">Save Changes
-				    			<i class="material-icons right">send</i>
-				  				</button>
+								</div>
+							</li>
+							<li>
+								<div class="collapsible-header"><i class="large material-icons">vpn_key</i>Edit Password</div>
+								<div class="collapsible-body">Current Password: ********<br/>
+									New Password:<input type="email" id="newPassword">
+									Retype New Password:<input type="email" id="confirmPassword">
+									<div class="saveButton">
+								<button id="changePassword" class="btn waves-effect waves-light" type="submit" name="action">Save Changes
+									<i class="material-icons right">send</i>
+									</button>
 							</div>
-					      </div>
-					    </li>
+								</div>
+							</li>
 						</ul>
 						<ul class="collapsible" data-collapsible="accordion">
-					    <li class="collection-header" style="height:30px;"><h4>  User Information</h4></li>
-					    <li>
-					      <div class="collapsible-header"><i class="large material-icons">contacts</i>Edit Full Name</div>
-					      <div class="collapsible-body">Current Full Name: Doge Dogeson<br/>
-					      	New Full Name:<input type="email" id="inputEmail">
-					      	<div class="saveButton">
-								<button class="btn waves-effect waves-light" type="submit" name="action">Save Changes
-				    			<i class="material-icons right">send</i>
-				  				</button>
+							<li class="collection-header" style="height:30px;"><h4>  User Information</h4></li>
+							<li>
+								<div class="collapsible-header"><i class="large material-icons">contacts</i>Edit Full Name</div>
+								<div class="collapsible-body">Current Full Name: <p id="show-user_name"></p><br/>
+									New Full Name:<input type="email" id="newName">
+									<div class="saveButton">
+								<button  id="changeName" class="btn waves-effect waves-light" type="submit" name="action">Save Changes
+									<i class="material-icons right">send</i>
+									</button>
 							</div>
-					      </div>
-					    </li>
-					    <li>
-					      <div class="collapsible-header"><i class="large material-icons">comment</i>Edit Profile Description</div>
-					      <div class="collapsible-body">New Profile Description:<input type="email" id="inputEmail">
-					      	<div class="saveButton">
-								<button class="btn waves-effect waves-light" type="submit" name="action">Save Changes
-				    			<i class="material-icons right">send</i>
-				  				</button>
+								</div>
+							</li>
+							<li>
+								<div class="collapsible-header"><i class="large material-icons">comment</i>Edit Profile Description</div>
+								<div class="collapsible-body">New Profile Description:
+									<textarea id="signup-description" class="materialize-textarea"></textarea>
+									<label for="signup-description">Profile Description (Minimum of 255)</label>
+								<button id="changeDesc" class="btn waves-effect waves-light" type="submit" name="action">Save Changes
+									<i class="material-icons right">send</i>
+									</button>
 							</div>
-					      </div>
-					    </li>
-					  </ul>
+								</div>
+							</li>
+						</ul>
 					</div>
 			</div>
 		</main>
+		<!--Import jQuery before materialize.js-->
+		<script type="text/javascript" src="./resources/js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="./resources/js/materialize.min.js"></script>
 		<script>
+		function start(){
+			$.ajax({
+				url: '/init-admin',
+				method: 'GET',
+				success: init_userbase
+			});
+		};
+		function init_userbase(data){
+			var currUser = data;
+			console.log(currUser.user_name);
+			$('#curruser-user_name').text(currUser.user_name);
+			$('#curruser-admin_handle').text(currUser.admin_handle);
+			$('#show-user_name').text(currUser.user_name);
+			$('#show-admin_handle').text(currUser.admin_handle);
+			$('#show-user_email').text(currUser.user_email);
+
 			$(document).ready(function(){
-				$('.page-footer').pushpin({bottom});
+				$('.tooltipped').tooltip({delay: 50});
 				$('#hidden').hide();
 				$('#post').focus(function(){
 					$('.leafbar').animate({height:180},500,function(){})
 					$('#hidden').show();
 					$(this).animate({height:110},500,function(){});
-				}).blur(function(){
-					$('.leafbar').animate({height:50},500,function(){});
-					$('#hidden').hide();
-					$(this).animate({height:34},500,function(){});
+					}).blur(function(){
+						$('.leafbar').animate({height:50},500,function(){});
+						$('#hidden').hide();
+						$(this).animate({height:34},500,function(){});
+					});
+					$('.collapsible').collapsible({
+						accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+					});
+					$('#changeHandle').click(function(){
+						var newHandle = $('#newHandle').val();
+						$.ajax({
+							 url: 'http://localhost:8080/change-admin-handle',
+							 method: 'PUT',
+							 data:  {
+								 handle: newHandle
+							 },
+							 success: setTimeout(function(){
+								 Materialize.toast('Succesfully changed your handle.', 4000);
+								 $('#curruser-admin_handle').text(newHandle);
+								 $('#show-admin_handle').text(newHandle);
+							 },1000)
+						 });
+					});
+					$('#changeEmail').click(function(){
+						var newEmail = $('#newEmail').val();
+						$.ajax({
+							 url: 'http://localhost:8080/change-admin-email',
+							 method: 'PUT',
+							 data:  {
+								 email: newEmail
+							 },
+							 success: setTimeout(function(){
+								 Materialize.toast('Succesfully changed your email.', 4000);
+								 $('#show-user_email').text(newEmail);
+							 },1000)
+						 });
+					});
+					$('#changePassword').click(function(){
+						var newPassword = $('#newPassword').val();
+						var confPassword = $('#confirmPassword').val();
+						if(newPassword === confPassword){
+							$.ajax({
+								 url: 'http://localhost:8080/change-admin-password',
+								 method: 'PUT',
+								 data:  {
+									 password: newPassword
+								 },
+								 success: setTimeout(function(){
+									 Materialize.toast('Succesfully changed your password.', 4000);
+								 },1000)
+							 });
+						} else {
+							Materialize.toast('Please recheck your password.', 4000);
+						}
+					});
+					$('#changeName').click(function(){
+						var newName = $('#newName').val();
+						$.ajax({
+							 url: 'http://localhost:8080/change-admin-name',
+							 method: 'PUT',
+							 data:  {
+								 name: newName
+							 },
+							 success: setTimeout(function(){
+								 Materialize.toast('Succesfully changed your name.', 4000);
+								 $('#curruser-user_name').text(newName);
+								 $('#show-user_name').text(newName);
+							 },1000)
+						 });
+					});
 				});
-    $('.collapsible').collapsible({
-      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-    });
-  });
-			});
+		}; start();
 		</script>
 	</body>
 </html>

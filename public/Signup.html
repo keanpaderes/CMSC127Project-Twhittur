@@ -60,30 +60,52 @@
         <script type="text/javascript" src="./resources/js/jquery.cookie.js"></script>
         <script type="text/javascript" src="./resources/js/materialize.min.js"></script>
   	  <script>
-      var pendingUser = JSON.parse($.cookie('pendingData'));
-      $(document).ready(function(){
-        $('ul.tabs').tabs('select_tab', 'test1');
-
-        $('#signup-button').click(function(){
-          var pendingHandle = $('#signup-handle').val();
-          var pendingBio = $('#signup-description').val();
-          $.ajax({
-             url: 'http://localhost:8080/register',
-             method: 'POST',
-             data:  {
-               id: pendingUser.id,
-               name: pendingUser.name,
-               email: pendingUser.email,
-               password: pendingUser.password,
-               handle: pendingHandle,
-               bio: pendingBio
-             },
-             success: setTimeout(function(){
-               window.location.href = "http://localhost:8080/"; //Set Landing Page for registration
-             },2000)
-           });//*/
+      function start(){
+        $.ajax({
+          url: '/auth',
+          method: 'GET',
+          success: init_userbase
         });
-      });
+      };
+      function init_userbase(data){
+        var user_db = data.rows;
+        var pendingUser = JSON.parse($.cookie('pendingData'));
+        $(document).ready(function(){
+          $('ul.tabs').tabs('select_tab', 'test1');
+          console.log(pendingUser);
+          $('#signup-button').click(function(){
+            var pendingHandle = '@' + $('#signup-handle').val();
+            var pendingBio = $('#signup-description').val();
+            var exist = 0;
+            for(var i = 0; i < user_db.length; i++){
+              if(pendingHandle === user_db[i].normal_handle){
+                alert("ERROR: Handle already exists!");
+                exist = 1;
+              }
+            }
+            if(exist != 1){
+              console.log('inserted');
+              $.ajax({
+                 url: 'http://localhost:8080/register',
+                 method: 'POST',
+                 data:  {
+                   id: pendingUser.id,
+                   name: pendingUser.name,
+                   email: pendingUser.email,
+                   password: pendingUser.password,
+                   handle: pendingHandle,
+                   bio: pendingBio
+                 },
+                 success: setTimeout(function(){
+                   window.location.href = "http://localhost:8080/"; //Set Landing Page for registration
+                 },2000)
+               });//*/
+            }
+
+          });
+        });
+      };
+      start();
   	  </script>
     </body>
   </html>
