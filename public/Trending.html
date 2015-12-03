@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -10,10 +9,6 @@
 		<link href="./resources/css/custom.css" rel="stylesheet">
 		<!--Let browser know website is optimized for mobile-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<!--Import jQuery before materialize.js-->
-		<script type="text/javascript" src="../resources/js/jquery-2.1.3.js"></script>
-		<script type="text/javascript" src="../resources/js/materialize.min.js"></script>
-		<script src="../resources/js/bootstrap.js"></script>
 	</head>
 	<body>
 		<header>
@@ -56,36 +51,9 @@
 							<li class="collection-header teal darken-1 white-text">
 								<h4>Trending Tags of the Day</h4>
 							</li>
-							<div class="inner">
-								<li class="collection-item" >
-									<a href="#!" class="collection-item text-accent-4 a-left-padding">CMSC127TheBest</a>
-								</li>
-								<li class="collection-item" >
-									<a href="#!" class="collection-item text-accent-4 a-left-padding">Primavera<3</a>
-								</li>
-								<li class="collection-item" >
-									<a href="#!" class="collection-item text-accent-4 a-left-padding">MikeGwapo</a>
-								</li>
-								<li class="collection-item" >
-									<a href="#!" class="collection-item text-accent-4 a-left-padding">PapaKean</a>
-								</li>
-								<li class="collection-item" >
-									<a href="#!" class="collection-item text-accent-4 a-left-padding">PapasaKamisaCMSC127</a>
-								</li>
-								<li class="collection-item" >
-									<a href="#!" class="collection-item text-accent-4 a-left-padding">TwitthurIsLove</a>
-								</li>
-								<li class="collection-item" >
-									<a href="#!" class="collection-item text-accent-4 a-left-padding">GroupOneKami</a>
-								</li>
-								<li class="collection-item" >
-									<a href="#!" class="collection-item text-accent-4 a-left-padding">Huhuhuhuhu</a>
-								</li>
-								<li class="collection-item" >
-									<a href="#!" class="collection-item text-accent-4 a-left-padding">WhatIsSleep</a>
-								</li>
-								<li class="collection-item" >
-									<a href="#!" class="collection-item text-accent-4 a-left-padding">WalaNaAkoMaisip</a>
+							<div id="tweetz" class="inner">
+								<li id="user0" class="collection-item" >
+									<a id="user0-name" href="#!" class="collection-item text-accent-4 a-left-padding"></a>
 								</li>
 							</div>
 						</ul>
@@ -98,36 +66,9 @@
 							<li class="collection-header teal darken-1 white-text">
 								<h4>Trending Tags of the Month</h4>
 							</li>
-							<div class="inner">
-								<li class="collection-item" >
-									<a href="#!" class="collection-item text-accent-4 a-left-padding">CMSC127TheBest</a>
-								</li>
-								<li class="collection-item" >
-									<a href="#!" class="collection-item text-accent-4 a-left-padding">Primavera</a>
-								</li>
-								<li class="collection-item" >
-									<a href="#!" class="collection-item text-accent-4 a-left-padding">MikeGwapo</a>
-								</li>
-								<li class="collection-item" >
-									<a href="#!" class="collection-item text-accent-4 a-left-padding">PapaKean</a>
-								</li>
-								<li class="collection-item" >
-									<a href="#!" class="collection-item text-accent-4 a-left-padding">PapasaKamisaCMSC127</a>
-								</li>
-								<li class="collection-item" >
-									<a href="#!" class="collection-item text-accent-4 a-left-padding">TwitthurIsLove</a>
-								</li>
-								<li class="collection-item" >
-									<a href="#!" class="collection-item text-accent-4 a-left-padding">GroupOneKami</a>
-								</li>
-								<li class="collection-item" >
-									<a href="#!" class="collection-item text-accent-4 a-left-padding">Huhuhuhuhu</a>
-								</li>
-								<li class="collection-item" >
-									<a href="#!" class="collection-item text-accent-4 a-left-padding">WhatIsSleep</a>
-								</li>
-								<li class="collection-item" >
-									<a href="#!" class="collection-item text-accent-4 a-left-padding">WalaNaAkoMaisip</a>
+							<div id="tweetzz" class="inner">
+								<li id="userr0" class="collection-item" >
+									<a id="userr0-name" href="#!" class="collection-item text-accent-4 a-left-padding"></a>
 								</li>
 							</div>
 						</ul>
@@ -151,6 +92,34 @@
 			var currLength;
 			$("#curruser-user_name").text(currUser.user_name);
 			$("#curruser-admin_handle").text(currUser.admin_handle);
+
+			$.getJSON('/trending-day', function(data){
+				var dayTrend = data;
+				$("#user0").hide();
+				for(var i = 0; i < dayTrend.rowCount; i++){
+					var $leaf = $('#user0').clone();
+					var id = "user"+i;
+					$leaf.show();
+					$leaf.find('#user0-name').attr('id',id+'-name');
+					$leaf.attr('id',id);
+					$leaf.find('#'+id+'-name').html(dayTrend.rows[i].tweet_hashtags); //Gets Name of the user
+					$( "#tweetz" ).prepend($leaf);
+				}
+			});
+
+			$.getJSON('/trending-month', function(data){
+				var monthTrend = data;
+				$("#userr0").hide();
+				for(var i = 0; i < monthTrend.rowCount; i++){
+					var $leaf1 = $('#userr0').clone();
+					var id = "userr"+i;
+					$leaf1.show();
+					$leaf1.find('#userr0-name').attr('id',id+'-name');
+					$leaf1.attr('id',id);
+					$leaf1.find('#'+id+'-name').html(monthTrend.rows[i].tweet_hashtags); //Gets Name of the user
+					$( "#tweetzz" ).prepend($leaf1);
+				}
+			});
 		};
 		start();
 		</script>

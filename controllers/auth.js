@@ -1,5 +1,6 @@
 var pg = require('pg');
-var conString = "postgres://kean:soraxy31@localhost/Twittur";
+var config = require('./../config/config');
+var conString = config.conString;
 
 exports.getUsers = function(req,res,next){ //callback function
   pg.connect(conString, function(err, client, done){

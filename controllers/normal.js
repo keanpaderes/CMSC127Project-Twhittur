@@ -1,7 +1,8 @@
 var pg = require('pg');
 var path = require("path"); //for traversing of paths
 var root = path.dirname(require.main.filename);
-var conString = "postgres://kean:soraxy31@localhost/Twittur";
+var config = require('./../config/config');
+var conString = config.conString;
 
 exports.getUser = function(req,res,next){ //callback function
   if(req.session.email && req.session.utype == 1){
@@ -23,7 +24,7 @@ exports.getTweets = function(req,res,next){ //callback function
   if(req.session.email && req.session.utype == 1){
     pg.connect(conString, function(err, client, done){
       if(err) return next(err);
-      client.query('SELECT t.tweet_id, u.user_name, u.normal_handle, t.post_time, t.number_of_retweets, t.Number_of_favourites, t.tweet_message FROM normal_tweets tweets, user1 u, tweet t where u.user_id = tweets.user_id and tweets.tweet_id = t.tweet_id and u.user_email = $1 order by post_time asc',
+      client.query('SELECT t.tweet_id, u.user_name, u.normal_handle, t.post_time, t.number_of_retweets, t.number_of_favourites, t.tweet_message FROM normal_tweets tweets, user1 u, tweet t where u.user_id = tweets.user_id and tweets.tweet_id = t.tweet_id and u.user_email = $1 order by post_time asc',
          [req.session.email], function(err, result){
     			if (err) return next(err);
           res.send(result.rows);
@@ -36,11 +37,51 @@ exports.getTweets = function(req,res,next){ //callback function
   }
 };
 
+exports.getRetweets = function(req,res,next){ //callback function
+  if(req.session.email && req.session.utype == 1){
+    pg.connect(conString, function(err, client, done){
+      if(err) return next(err);
+      client.query('SELECT t.tweet_id, u.user_name, u.normal_handle, t.post_time, t.number_of_retweets, t.number_of_favourites, t.tweet_message FROM normal_favourites tweets, user1 u, tweet t, normal_tweets tw where tweets.favourite_id = t.tweet_id and tw.user_id = u.user_id  and tw.tweet_id = t.tweet_id and tweets.user_id = $1 order by post_time asc',[
+        req.body.user_id
+      ],function(err, result){
+    			if (err) return next(err);
+              console.log(req.body.user_id);
+              console.log(results);
+              res.send(result);
+              done();
+    	});
+    });
+  } else{
+    var backURL = req.session.backURL || '/';
+    res.redirect(backURL);
+  }
+};
+
+exports.getFavourites = function(req,res,next){ //callback function
+  if(req.session.email && req.session.utype == 1){
+    pg.connect(conString, function(err, client, done){
+      if(err) return next(err);
+      client.query('SELECT t.tweet_id, u.user_name, u.normal_handle, t.post_time, t.number_of_retweets, t.number_of_favourites, t.tweet_message FROM normal_retweets tweets, user1 u, tweet t, normal_tweets tw where tweets.retweet_id = t.tweet_id and tw.user_id = u.user_id  and tw.tweet_id = t.tweet_id and tweets.user_id = $1 order by post_time asc',[
+        req.body.user_id
+      ],function(err, result){
+    			if (err) return next(err);
+              console.log(req.body.user_id);
+              console.log(result);
+              res.send(result);
+              done();
+    	});
+    });
+  } else{
+    var backURL = req.session.backURL || '/';
+    res.redirect(backURL);
+  }
+};
+
 exports.getAllTweets = function(req,res,next){ //callback function
   if(req.session.email && req.session.utype == 1){
     pg.connect(conString, function(err, client, done){
       if(err) return next(err);
-      client.query('SELECT t.tweet_id, u.user_name, u.normal_handle, t.post_time, t.tweet_message FROM normal_tweets tweets, user1 u, tweet t where u.user_id = tweets.user_id and tweets.tweet_id = t.tweet_id order by post_time asc',
+      client.query('SELECT t.tweet_id, u.user_name, u.normal_handle, t.post_time, t.number_of_retweets, t.number_of_favourites, t.tweet_message FROM normal_tweets tweets, user1 u, tweet t where u.user_id = tweets.user_id and tweets.tweet_id = t.tweet_id order by post_time asc',
        function(err, result){
     			if (err) return next(err);
           res.send(result.rows);
@@ -76,6 +117,71 @@ exports.postTweet = function(req,res,next){ //callback function
   }
 };
 
+exports.repliesTweet = function(req,res,next){ //callback function
+  if(req.session.email && req.session.utype == 1){
+    pg.connect(conString, function(err, client, done){
+      if(err) return next(err);
+      client.query('INSERT INTO replies_to VALUES ($1, $2)',[
+        req.body.from_id, req.body.to_id
+      ],function(err, result){
+    			if (err) return next(err);
+          res.send(result);
+          done();
+    	});
+    });
+  } else{
+    var backURL = req.session.backURL || '/';
+    res.redirect(backURL);
+  }
+};
+
+
+exports.faveTweet = function(req,res,next){ //callback function
+  if(req.session.email && req.session.utype == 1){
+    pg.connect(conString, function(err, client, done){
+      if(err) return next(err);
+      client.query('INSERT INTO normal_favourites VALUES ($1, $2)',[
+        req.body.tweet_id, req.body.user_id
+      ],function(err, result){
+    			if (err) return next(err);
+          client.query(' UPDATE tweet SET number_of_favourites = number_of_favourites + 1 where tweet_id = $1',[
+            req.body.tweet_id
+          ], function(err, result){
+              if (err) return next(err);
+              res.send(result);
+              done();
+          });
+    	});
+    });
+  } else{
+    var backURL = req.session.backURL || '/';
+    res.redirect(backURL);
+  }
+};
+
+exports.retweetTweet = function(req,res,next){ //callback function
+  if(req.session.email && req.session.utype == 1){
+    pg.connect(conString, function(err, client, done){
+      if(err) return next(err);
+      client.query('INSERT INTO normal_retweets VALUES ($1, $2)',[
+        req.body.tweet_id, req.body.user_id
+      ],function(err, result){
+    			if (err) return next(err);
+          client.query(' UPDATE tweet SET number_of_retweets = number_of_retweets + 1 where tweet_id = $1',[
+            req.body.tweet_id
+          ], function(err, result){
+              if (err) return next(err);
+              res.send(result);
+              done();
+          });
+    	});
+    });
+  } else{
+    var backURL = req.session.backURL || '/';
+    res.redirect(backURL);
+  }
+};
+
 exports.getCountTweets = function(req,res,next){ //callback function
   if(req.session.email && req.session.utype == 1){
     pg.connect(conString, function(err, client, done){
@@ -84,7 +190,7 @@ exports.getCountTweets = function(req,res,next){ //callback function
         req.session.email
       ],function(err, result){
     			if (err) return next(err);
-          res.send(result.rows[0].count);
+          res.send(result.rows[0]);
           done();
     	});
     });
@@ -102,7 +208,7 @@ exports.getCountFavourites = function(req,res,next){ //callback function
         req.session.email
       ],function(err, result){
     			if (err) return next(err);
-          res.send(result.rows[0].count);
+          res.send(result.rows[0]);
           done();
     	});
     });
@@ -120,7 +226,7 @@ exports.getCountRetweets = function(req,res,next){ //callback function
         req.session.email
       ],function(err, result){
     			if (err) return next(err);
-          res.send(result.rows[0].count);
+          res.send(result.rows[0]);
           done();
     	});
     });

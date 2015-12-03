@@ -8,12 +8,13 @@
 		<link href="./resources/css/bootstrap.css" rel="stylesheet">
 		 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link href="./resources/css/custom.css" rel="stylesheet">
+		<style>
+			#tweet0, #specialTemplate {
+				display: none;
+			}
+		</style>
 		<!--Let browser know website is optimized for mobile-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<!--Import jQuery before materialize.js-->
-		<script type="text/javascript" src="../resources/js/jquery-2.1.3.js"></script>
-		<script type="text/javascript" src="../resources/js/materialize.min.js"></script>
-		<script src="../resources/js/bootstrap.js"></script>
 	</head>
 	<body class="blue-grey lighten-5">
 
@@ -26,8 +27,8 @@
 								<img src="./resources/images/dog.jpg" style="left:70px;bottom:50px;">
 							</div>
 							<div class="col s8 m8 offset-s2 offset-m2" id="info">
-								<h4 class="blue-grey-text text-darken-4 flow-text"><b id="curruser-user_name"></b></h4>
-								<h6 id="curruser-normal_handle" class="blue-grey-text text-darken-4 flow-text"></h6>
+								<h4 class="blue-grey-text text-darken-4 flow-text"><b class="curruser-user_name"></b></h4>
+								<h6 class="curruser-normal_handle" class="blue-grey-text text-darken-4 flow-text"></h6>
 							</div>
 						</div>
 					</div>
@@ -38,19 +39,19 @@
 									<td id="fix">
 										<a href="#" style="padding-right: 0px;padding-left: 5px;">
 											<p class="blue-grey-text text-darken-4 flow-text">TWEETS</p>
-											<h6 id="curruser-tweets" class=" yellow-text text-accent-4 flow-text"></h6>
+											<h6 class="curruser-tweets" class=" yellow-text text-accent-4 flow-text">0</h6>
 										</a>
 									</td>
 									<td>
 										<a href="#" style="padding-left:0px;padding-right: 0px;">
 											<p class="blue-grey-text text-darken-4 flow-text">FAVOURITES</p>
-											<h6 id="curruser-favourites" class=" yellow-text text-accent-4 flow-text"></h6>
+											<h6 class="curruser-favourites" class=" yellow-text text-accent-4 flow-text">0</h6>
 										</a>
 									</td>
 									<td>
 										<a href="#" style="padding-left:0px;padding-right: 0px;">
 											<p class="blue-grey-text text-darken-4 flow-text">RETWEETS</p>
-											<h6 id="curruser-retweets" class=" yellow-text text-accent-4 flow-text"></h6>
+											<h6 class="curruser-retweets" class=" yellow-text text-accent-4 flow-text">0</h6>
 										</a>
 									</td>
 								</tr>
@@ -84,83 +85,80 @@
 						</div>
 						</div>
 						<div class="col s12 m2">
-							<h4 class="blue-grey-text text-darken-4 flow-text"><b id="curruser-user_name"></b></h4>
-							<h6 id="curruser-normal_handle" class="blue-grey-text text-darken-4 flow-text"></h6>
+							<h4 class="blue-grey-text text-darken-4 flow-text"><b class="curruser-user_name"></b></h4>
+							<h6 class="curruser-normal_handle" class="blue-grey-text text-darken-4 flow-text"></h6>
 						</div>
 						<div class="col s12 m6">
 						<table class="info" style="margin-top: 10px">
 							<tbody>
 								<tr>
 									<td id="fix">
-										<a href="#">
+										<a id="tweetlist-btn" href="#" onclick="return false;">
 											<h4 class="blue-grey-text text-darken-4">TWEETS</h4>
-											<h4 id="curruser-tweets" class="blue-text text-accent-4"></h4>
+											<h4 class="curruser-tweets" class="blue-text text-accent-4">0</h4>
 										</a>
 									</td>
 									<td>
-										<a href="#">
+										<a id="favelist-btn" href="#" onclick="return false;">
 											<h4 class="blue-grey-text text-darken-4">FAVOURITES</h4>
-											<h4 id="curruser-favourites" class="blue-text text-accent-4"></h4>
+											<h4 class="curruser-favourites" class="blue-text text-accent-4">0</h4>
 										</a>
 									</td>
 									<td>
-										<a href="#">
-											<h4 class="blue-grey-text text-darken-4">FOLLOWERS</h4>
-											<h4 id="curruser-retweets" class="blue-text text-accent-4"></h4>
+										<a id="retweetlist-btn" href="#" onclick="return false;">
+											<h4 class="blue-grey-text text-darken-4">RETWEETS</h4>
+											<h4 class="curruser-retweets" class="blue-text text-accent-4">0</h4>
 										</a>
 									</td>
 								</tr>
 							</tbody>
 						</table>
 						</div>
-						<div class="col s12 m2" style="margin-top: 25px;">
+						<!--<div class="col s12 m2" style="margin-top: 25px;">
 							<a class="waves-effect waves-light btn cyan darken-1"><i class="material-icons left">perm_identity</i>FOLLOW</a>
-						</div>
+						</div>-->
 					</div>
 			</div>
 			<div class="container" style="margin-left:8%; margin-right:8%;width:90%;">
 				<div class="section">
-					<div id="tweetz" class="row tweet-collection" style="width:100%;">
-
-						<!-- Hardcoded Tweets -->
-						<div id="tweet0" class="col s12 m6 l8" style="width: 70%;">
-							<div class="card-panel white tweet" style="padding: 0px;">
-								<ul class="collection">
-									<li class="collection-item avatar white lighten-4">
-										<img src="./resources/images/dog.jpg" class="circle">
-										<span class="title"><b id="tweet0-name"></b> <i id="tweet0-handle"></i> <small id="tweet0-time"></small></span>
-										<p id="tweet0-msg">Welcome to Leafer! Have fun using the app!</p><br/><br/>
-											<table class="info">
-												<tbody>
-													<tr>
-														<td>
-															<a href="#">
-																<span class="glyphicon glyphicon-share-alt blue-grey-text text-darken-4" aria-hidden="true"></span>
-															</a>
-														</td>
-														<td>
-															<a href="#">
-																<span class="glyphicon glyphicon-refresh blue-grey-text text-darken-4" aria-hidden="true"></span>
-															</a>
-														</td>
-														<td>
-															<a href="#">
-																<span class="glyphicon glyphicon-heart blue-grey-text text-darken-4" aria-hidden="true"></span>
-															</a>
-														</td>
-														<td>
-															<a href="#">
-																<span class="glyphicon glyphicon-option-horizontal blue-grey-text text-darken-4" aria-hidden="true"></span>
-															</a>
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</p>
-									</li>
-								</ul>
-							</div>
+					<!-- Hardcoded Tweets -->
+					<div id="tweet0" class="col s12 m6 l8" style="width: 70%;">
+						<div class="card-panel white tweet" style="padding: 0px;">
+							<ul class="collection">
+								<li class="collection-item avatar white lighten-4">
+									<img src="./resources/images/dog.jpg" class="circle">
+									<span class="title"><b id="tweet0-name"></b> <i id="tweet0-handle"></i> <small id="tweet0-time"></small></span>
+									<p id="tweet0-msg">Welcome to Leafer! Have fun using the app!</p><br/><br/>
+									<p>
+										<a href="#replyModal" onclick="replyOn($(this)); return false;" id="tweet0-replyBtn" class="modal-trigger" style="color:inherit;" data-Tweet="0">
+											<i class="material-icons" style="margin-left:3em;">reply</i>
+										</a>
+										<a href="#" onclick="retweet($(this)); return false;" id="tweet0-retweetBtn" style="color:inherit;" data-Number="0">
+											<i class="material-icons" style="margin-left:3em;">autorenew</i><span id="tweet0-retweetCounter">0</span>
+										</a>
+										<a href="#" onclick="fave($(this)); return false;" id="tweet0-faveBtn" style="color:inherit;" data-Number="0">
+											<i class="material-icons" style="margin-left:3em;">star</i><span id="tweet0-faveCounter">0</span>
+										</a>
+										<a href="#" style="color:inherit;" data-Number="0">
+											<i class="material-icons" style="margin-left:3em;">more</i>
+										</a>
+									</p>
+								</li>
+							</ul>
 						</div>
+					</div>
+					<div id="specialTemplate" class="col s12 m6 l8" style="width: 70%;">
+						<div class="card-panel white tweet" style="padding: 0px;">
+							<ul class="collection">
+								<li class="collection-item avatar white lighten-4">
+									<img src="./resources/images/dog.jpg" class="circle">
+									<span class="title"><b id="modal-name"></b> <i id="modal-handle"></i> <small id="modal-time"></small></span>
+									<p id="modal-msg">Welcome to Leafer! Have fun using the app!</p><br/><br/>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div id="tweetz" class="row tweet-collection" style="width:100%;">
 
 						<!-- Trends Panel -->
 						<!----<div class="col s12 m6 l3" style="margin-left:5%;">
@@ -178,6 +176,33 @@
 								</ul>
 
 							</div>---->
+						</div>
+						<div id="replyModal" class="modal" style="height:45%;bottom:60%;">
+							<div class="modal-content">
+								<h4>Reply to: </h4>
+								<ul class="collection">
+									<li class="collection-item avatar white lighten-4">
+										<img src="./resources/images/dog.jpg" class="circle">
+										<span class="title"><b id="modal-name"></b> <i id="modal-handle"></i> <small id="modal-time"></small></span>
+										<p id="modal-msg">Welcome to Leafer! Have fun using the app!</p><br/><br/>
+									</li>
+								</ul>
+								<div class="card cyan darken-1 leafbar" style="height:9em;">
+									<div class="row">
+										<form class="col s12">
+											<div class="row">
+												<div class="col s1" id="leafbar-dp">
+													<img src="./resources/images/dog.jpg" alt="IMAGE" style="right: 150%;">
+												</div>
+												<div class="form-group col s9">
+												  <textarea id="reply-msg" class="form-control validate green lighten-4" maxlength= "140" height="500" placeholder="What's happening?" style="margin-top:5px;height:40px;height:8em;"></textarea>
+													<a id="reply-btn" class="waves-effect waves-light btn yellow  blue-grey-text text-darken-4" style="top:-36px;left:102%;" data-Number="0"><i class="material-icons">mms</i> Leafit</a>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -199,7 +224,7 @@
 									</div>
 									<div class="form-group col s9" id="leafbar-info">
 									  <textarea class="form-control validate green lighten-4" maxlength= "140" height="500" id="postTweet" placeholder="What's happening?" style="margin-top:5px;height:40px;"></textarea>
-										<a class="waves-effect waves-light btn yellow  blue-grey-text text-darken-4" id="postBtn" style="top:-36px;left:104%;">Twitt <span class="glyphicon glyphicon-edit"></span></a>
+										<a class="waves-effect waves-light btn yellow  blue-grey-text text-darken-4" id="postBtn" style="top:-36px;left:104%;"><i class="material-icons">mms</i> Leafit</a>
 									</div>
 								</div>
 
@@ -215,6 +240,8 @@
     <script type="text/javascript" src="./resources/js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="./resources/js/materialize.min.js"></script>
 		<script>
+		var template = $('#tweet0');
+		var currUser;
 		function start(){
 			$.ajax({
 				url: '/init-user',
@@ -222,25 +249,69 @@
 				success: init_userbase
 			});
 		};
+
+		function replyOn(data){
+			var repliedOn = JSON.parse(data.attr('data-Tweet'));
+			$('#modal-name').html(repliedOn.user_name);
+			$('#modal-handle').html(repliedOn.normal_handle);
+			$('#modal-time').html(new Date(Date.parse(repliedOn.post_time)));
+			$('#modal-msg').text(repliedOn.tweet_message);
+			$('#reply-btn').attr('data-Number', repliedOn.tweet_id);
+			$('#replyModal').openModal();
+		}
+
+		function retweet(data){
+			$.ajax({
+				url: '/retweet',
+				method: 'POST',
+				data: {
+					tweet_id: data.attr('data-Number'),
+					user_id: currUser.user_id
+				},
+				success: function(){
+					Materialize.toast('Retweeted!', 2000);
+					$('#tweet' + data.attr('data-Number') + '-retweetCounter').text(parseInt($('#tweet' + data.attr('data-Number') + '-retweetCounter').text(),10)+1)
+					$('#curruser-retweets').text(parseInt($('#curruser-retweets').text(),10)+1);
+				}
+			});
+		}
+
+		function fave(data){
+			$.ajax({
+				url: '/favourite',
+				method: 'POST',
+				data: {
+					tweet_id: data.attr('data-Number'),
+					user_id: currUser.user_id
+				},
+				success: function(){
+					Materialize.toast('Favourited!', 2000);
+					$('#tweet' + data.attr('data-Number') + '-faveCounter').text(parseInt($('#tweet' + data.attr('data-Number') + '-faveCounter').text(),10)+1)
+					$('#curruser-favourites').text(parseInt($('#curruser-favourites').text(),10)+1);
+				}
+			});
+		}
+
 		function init_userbase(data){
-			var currUser = data;
+			currUser = data;
 			var currLength;
-			$("#curruser-user_name").text(currUser.user_name);
-			$("#curruser-normal_handle").text(currUser.normal_handle);
+			$(".curruser-user_name").text(currUser.user_name);
+			$(".curruser-normal_handle").text(currUser.normal_handle);
+			console.log(currUser.user_id);
 
 			$.getJSON('/init-count-tweets',function(data){
-					var count = data;
-					$('#curruser-tweets').html(count);
+					var count = data.count;
+					$('.curruser-tweets').html(count);
 			});
 
 			$.getJSON('/init-count-favourites',function(data){
-					var count = data;
-					$('#curruser-favourites').html(count);
+					var count = data.count;
+					$('.curruser-favourites').html(count);
 			});
 
 			$.getJSON('/init-count-retweets',function(data){
-					var count = data;
-					$('#curruser-retweets').html(count);
+					var count = data.count;
+					$('.curruser-retweets').html(count);
 			});
 
 			$.getJSON('/init-all-tweets', function(data){
@@ -250,23 +321,38 @@
 
 			$.getJSON('/init-tweets', function(data){
 				var currTweets = data;
-				$('#tweet0-name').html(currTweets[0].user_name);
-				$('#tweet0-handle').html(currTweets[0].normal_handle);
-				$('#tweet0-time').html(new Date(Date.parse(currTweets[0].post_time)));
+				//console.log(currTweets);
 				for(var i = 0; i < currTweets.length; i++){
 					var $leaf = $('#tweet0').clone();
-					var id = "tweet"+i;
+					var id = "tweet"+(i+1);
 					$leaf.find('#tweet0-name').attr('id',id+'-name');
 					$leaf.find('#tweet0-handle').attr('id',id+'-handle');
 					$leaf.find('#tweet0-time').attr('id',id+'-time');
 					$leaf.find('#tweet0-msg').attr('id',id+'-msg');
+					$leaf.find('#tweet0-replyBtn').attr({
+						'id': id + '-replyBtn',
+						'data-Tweet': JSON.stringify(currTweets[i])
+					});
+					$leaf.find('#tweet0-retweetBtn').attr({
+						'id': id + '-retweetBtn',
+						'data-Number': currTweets[i].tweet_id
+					});
+					$leaf.find('#tweet0-faveBtn').attr({
+						'id': id + '-faveBtn',
+						'data-Number': currTweets[i].tweet_id
+					});
+					$leaf.find('#tweet0-retweetCounter').attr('id', id+'-retweetCounter');
+					$leaf.find('#tweet0-faveCounter').attr('id', id+'-faveCounter');
 					$leaf.attr('id',id);
 					$leaf.find('#'+id+'-name').html(currTweets[i].user_name); //Gets Name of the user
 					$leaf.find('#'+id+'-handle').html(currTweets[i].normal_handle); //Gets handle of the user
 					$leaf.find('#'+id+'-time').html(new Date(Date.parse(currTweets[i].post_time)));
 					$leaf.find('#'+id+'-msg').html(currTweets[i].tweet_message);
-					$( "#tweetz" ).prepend($leaf);
+					$leaf.find('#'+id+'-retweetCounter').html(currTweets[i].number_of_retweets);
+					$leaf.find('#'+id+'-faveCounter').html(currTweets[i].number_of_favourites);
+					$( '#tweetz' ).prepend($leaf);
 				}
+				//$( '#tweet0' ).hide();
 			});
 
 
@@ -281,10 +367,10 @@
 					$('#postTweet').animate({height:'40px'}, 500);
 				});
 				$("#postBtn").click(function(){
+					//$('#tweet0').show();
 					$('.leafbar').animate({height: leafbarHeight}, 500);
 					$('#postTweet').animate({height:'40px'}, 500);
 					var counter = currLength + 1;
-					console.log(counter);
 					currLength = counter;
 					$('#curruser-tweets').html(counter);
 					var $leaf = $('#tweet0').clone();
@@ -293,6 +379,19 @@
 					$leaf.find('#tweet0-handle').attr('id',id+'-handle');
 					$leaf.find('#tweet0-time').attr('id',id+'-time');
 					$leaf.find('#tweet0-msg').attr('id',id+'-msg');
+					$leaf.find('#tweet0-replyBtn').attr({
+						'id': id + '-replyBtn'
+					});
+					$leaf.find('#tweet0-retweetBtn').attr({
+						'id': id + '-retweetBtn',
+						'data-Number': counter
+					});
+					$leaf.find('#tweet0-faveBtn').attr({
+						'id': id + '-faveBtn',
+						'data-Number': counter
+					});
+					$leaf.find('#tweet0-retweetCounter').attr('id', id+'-retweetCounter');
+					$leaf.find('#tweet0-faveCounter').attr('id', id+'-faveCounter');
 					$leaf.attr('id',id);
 					$leaf.find('#'+id+'-name').html(currUser.user_name); //Gets Name of the user
 					$leaf.find('#'+id+'-handle').html(currUser.normal_handle); //Gets handle of the user
@@ -300,6 +399,8 @@
 					$leaf.find('#'+id+'-time').html(postTime);
 					var msg = $('#postTweet').val();
 					$leaf.find('#'+id+'-msg').html(msg);
+					$leaf.find('#'+id+'-retweetCounter').html('0');
+					$leaf.find('#'+id+'-faveCounter').html('0');
 					$( "#tweetz" ).prepend($leaf);
 
 					var userID = currUser.user_id;
@@ -314,12 +415,192 @@
 								number_of_favourites: 0,
 								tweet_message: msg
 						 },
-						 success: setTimeout(function(){
-								Materialize.toast('Your tweet has been posted!', 2000);
-								window.location.href = 'http://localhost:8080/profile';
-						 },2000)
+						 success: function(){
+							 var tweetPosted = {
+								 user_id: userID,
+								 tweet_id: counter,
+								 post_time: postTime,
+								 number_of_retweets: 0,
+								 number_of_favourites: 0,
+								 tweet_message: msg
+							 };
+
+							 $('#'+id+'-replyBtn').attr('data-Tweet', JSON.stringify(tweetPosted));
+							 Materialize.toast('Your tweet has been posted!', 2000);
+							 $('#curruser-tweets').text(parseInt($('#curruser-tweets').text(),10)+1);
+							 $('#postTweet').val('');
+							 $('.leafbar').animate({height: leafbarHeight}, 500);
+							 $('#postTweet').animate({height:'40px'}, 500);
+						 }
+					});
+					//$('#tweet0').hide();
+				}).focusout(function(){
+						$('.leafbar').animate({height: leafbarHeight}, 500);
+						$('#postTweet').animate({height:'40px'}, 500);
+				});
+				$("#reply-btn").click(function(){
+					//$('#tweet0').show();
+					var counter = currLength+1;
+					currLength = counter;
+					var $leaf = template;
+					var id = "tweet"+counter;
+					$leaf.find('#tweet0-name').attr('id',id+'-name');
+					$leaf.find('#tweet0-handle').attr('id',id+'-handle');
+					$leaf.find('#tweet0-time').attr('id',id+'-time');
+					$leaf.find('#tweet0-msg').attr('id',id+'-msg');
+					$leaf.find('#tweet0-replyBtn').attr({
+						'id': id + '-replyBtn'
+					});
+					$leaf.find('#tweet0-retweetBtn').attr({
+						'id': id + '-retweetBtn',
+						'data-Number': counter
+					});
+					$leaf.find('#tweet0-faveBtn').attr({
+						'id': id + '-faveBtn',
+						'data-Number': counter
+					});
+					$leaf.find('#tweet0-retweetCounter').attr('id', id+'-retweetCounter');
+					$leaf.find('#tweet0-faveCounter').attr('id', id+'-faveCounter');
+					$leaf.attr('id',id);
+					$leaf.find('#'+id+'-name').html(currUser.user_name); //Gets Name of the user
+					$leaf.find('#'+id+'-handle').html(currUser.normal_handle); //Gets handle of the user
+					var postTime = new Date().toUTCString().slice(0,-4);
+					$leaf.find('#'+id+'-time').html(postTime);
+					var msg = $('#modal-handle').text() + ' ' + $('#reply-msg').val();
+					$leaf.find('#'+id+'-msg').html(msg);
+					$leaf.find('#'+id+'-retweetCounter').html('0');
+					$leaf.find('#'+id+'-faveCounter').html('0');
+					$( "#tweetz" ).prepend($leaf);
+
+					var userID = currUser.user_id;
+					$.ajax({
+						 url: 'http://localhost:8080/normal',
+						 method: 'POST',
+						 data:  {
+								user_id: userID,
+								tweet_id: counter,
+								post_time: postTime,
+								number_of_retweets: 0,
+								number_of_favourites: 0,
+								tweet_message: msg
+						 },
+						 success:	function(){
+							 var tweetPosted = {
+								 user_id: userID,
+								 tweet_id: counter,
+								 post_time: postTime,
+								 number_of_retweets: 0,
+								 number_of_favourites: 0,
+								 tweet_message: msg
+							 };
+
+							 $('#'+id+'-replyBtn').attr('data-Tweet', JSON.stringify(tweetPosted));
+							 $.ajax({
+									url: '/reply',
+									method: 'POST',
+									data:  {
+										 from_id: counter,
+										 to_id: $('#reply-btn').attr('data-Number')
+									},
+									success:	function(){
+										 $('#replyModal').closeModal();
+										 Materialize.toast('Your tweet has been posted!', 2000);
+										 $('#curruser-tweets').text(parseInt($('#curruser-tweets').text(),10)+1);
+										 $('#reply-btn').val('');
+										 $('.leafbar').animate({height: leafbarHeight}, 500);
+										 $('#postTweet').animate({height:'40px'}, 500);
+									}
+							 });
+						 }
+					});
+					//$('#tweet0').hide();
+				});
+				$('#tweetlist-btn').click(function(){
+					//$('#tweet0').show();
+					$('#tweetz').empty();
+					$.getJSON('/init-tweets', function(data){
+						var currTweets = data;
+						for(var i = 0; i < currTweets.length; i++){
+							var $leaf = $('#tweet0').clone();
+							console.log($leaf);
+							var id = "tweet"+(i+1);
+							$leaf.find('#tweet0-name').attr('id',id+'-name');
+							$leaf.find('#tweet0-handle').attr('id',id+'-handle');
+							$leaf.find('#tweet0-time').attr('id',id+'-time');
+							$leaf.find('#tweet0-msg').attr('id',id+'-msg');
+							$leaf.find('#tweet0-replyBtn').attr({
+								'id': id + '-replyBtn',
+								'data-Tweet': JSON.stringify(currTweets[i])
+							});
+							$leaf.find('#tweet0-retweetBtn').attr({
+								'id': id + '-retweetBtn',
+								'data-Number': currTweets[i].tweet_id
+							});
+							$leaf.find('#tweet0-faveBtn').attr({
+								'id': id + '-faveBtn',
+								'data-Number': currTweets[i].tweet_id
+							});
+							$leaf.find('#tweet0-retweetCounter').attr('id', id+'-retweetCounter');
+							$leaf.find('#tweet0-faveCounter').attr('id', id+'-faveCounter');
+							$leaf.attr('id',id);
+							$leaf.find('#'+id+'-name').html(currTweets[i].user_name); //Gets Name of the user
+							$leaf.find('#'+id+'-handle').html(currTweets[i].normal_handle); //Gets handle of the user
+							$leaf.find('#'+id+'-time').html(new Date(Date.parse(currTweets[i].post_time)));
+							$leaf.find('#'+id+'-msg').html(currTweets[i].tweet_message);
+							$leaf.find('#'+id+'-retweetCounter').html(currTweets[i].number_of_retweets);
+							$leaf.find('#'+id+'-faveCounter').html(currTweets[i].number_of_favourites);
+							$( '#tweetz' ).prepend($leaf);
+						}
+					});
+					//$('#tweet0').hide();
+				});
+				$('#favelist-btn').click(function(){
+					$('#tweetz').empty();
+					$.get('/init-faves', { user_id : currUser.user_id }, function(data){
+							var currTweets = data;
+							console.log(data);
+							for(var i = 0; i < currTweets.length; i++){
+								var $leaf = $('#specialTemplate').clone();
+								console.log($leaf);
+								var id = "fave"+i;
+								$leaf.find('#modal-name').attr('id',id+'-name');
+								$leaf.find('#modal-handle').attr('id',id+'-handle');
+								$leaf.find('#modal-time').attr('id',id+'-time');
+								$leaf.find('#modal-msg').attr('id',id+'-msg');
+								$leaf.attr('id',id);
+								$leaf.find('#'+id+'-name').html(currTweets[i].user_name); //Gets Name of the user
+								$leaf.find('#'+id+'-handle').html(currTweets[i].normal_handle); //Gets handle of the user
+								$leaf.find('#'+id+'-time').html(new Date(Date.parse(currTweets[i].post_time)));
+								$leaf.find('#'+id+'-msg').html(currTweets[i].tweet_message);
+								$( '#tweetz' ).prepend($leaf);
+							}
 					});
 				});
+				$('#retweetlist-btn').click(function(){
+					$('#tweetz').empty();
+					$.get('/init-retweets', { user_id : currUser.user_id }, function(data){
+							var currTweets = data;
+							console.log(data);
+							for(var i = 0; i < currTweets.length; i++){
+								var $leaf = $('#specialTemplate').clone();
+								console.log($leaf);
+								var id = "fave"+i;
+								$leaf.find('#modal-name').attr('id',id+'-name');
+								$leaf.find('#modal-handle').attr('id',id+'-handle');
+								$leaf.find('#modal-time').attr('id',id+'-time');
+								$leaf.find('#modal-msg').attr('id',id+'-msg');
+								$leaf.attr('id',id);
+								$leaf.find('#'+id+'-name').html(currTweets[i].user_name); //Gets Name of the user
+								$leaf.find('#'+id+'-handle').html(currTweets[i].normal_handle); //Gets handle of the user
+								$leaf.find('#'+id+'-time').html(new Date(Date.parse(currTweets[i].post_time)));
+								$leaf.find('#'+id+'-msg').html(currTweets[i].tweet_message);
+								$( '#tweetz' ).prepend($leaf);
+							}
+					});
+				});
+
+
+
 			});
 		};
 		start();

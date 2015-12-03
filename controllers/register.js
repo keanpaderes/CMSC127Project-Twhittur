@@ -1,7 +1,8 @@
 var pg = require('pg');
 var path = require("path"); //for traversing of paths
 var root = path.dirname(require.main.filename);
-var conString = "postgres://kean:soraxy31@localhost/Twittur";
+var config = require('./../config/config');
+var conString = config.conString;
 
 exports.pendingUser = function(req,res,next){ //callback function
   if(req.session.isRegistering == true){

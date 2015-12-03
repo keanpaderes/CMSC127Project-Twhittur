@@ -17,6 +17,10 @@ module.exports = function(router){ //exporting to other modules
 		.get(normal.getAllTweets);
 	router.route('/init-tweets')
 		.get(normal.getTweets);
+	router.route('/init-faves')
+		.get(normal.getFavourites);
+	router.route('/init-retweets')
+		.get(normal.getRetweets);
 	router.route('/init-user')
 		.get(normal.getUser);
 	router.route('/init-count-tweets')
@@ -28,6 +32,12 @@ module.exports = function(router){ //exporting to other modules
 	router.route('/normal')
 		.get(normal.redirectLanding)
 		.post(normal.postTweet);
+	router.route('/reply')
+		.post(normal.repliesTweet);
+	router.route('/retweet')
+		.post(normal.retweetTweet);
+	router.route('/favourite')
+		.post(normal.faveTweet);
 	router.route('/notifications')
 		.get(normal.redirectNotifications);
 	router.route('/profile')
